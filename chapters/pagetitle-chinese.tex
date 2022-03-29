@@ -1,0 +1,37 @@
+% !TEX root = main.tex
+
+%% 中文封面页， 不能单独编译
+%% 格式要求：无页眉页脚， 单独成页，后面空一页
+\begin{center}
+        \newcommand{\settingone}[1]{{\songti\sihao\bfseries #1}}
+        \noindent {\songti\sanhao\bfseries 中图分类号:} \hfill
+        \newlength{\Mylen}
+        \settowidth{\Mylen}{\settingone{学\qquad 号：MXXXXXXXXX}}
+        \begin{minipage}[t]{\Mylen}\songti \sihao \bfseries
+                学校代码 : 10856 \\ 学\qquad 号：MXXXXXXXXX
+        \end{minipage}
+
+        \includegraphics[scale=0.4]{images/logo} \\ [5mm]
+        \newlength{\Mylentwo}
+        \settowidth{\Mylentwo}{\songti \sanhao \bfseries 学\qquad 院: 电子电气工程学院}
+        {\heiti\xiaoer\bfseries 上海工程技术大学硕士学位论文} \\ [12mm]
+        {\songti\yihao\bfseries \LaTeX 硕士论文模板} \\[22mm]
+        \begin{minipage}[t]{\Mylentwo}\songti \sanhao \bfseries
+                作者姓名: xxx \\
+                指导老师: xxx \\
+                专\qquad 业: 控制科学与工程 \\
+                学\qquad 院: 电子电气工程学院 \\
+                申请学位: 工学硕士 \\
+                完成时间: 2022 年 12 月
+        \end{minipage}
+
+        \vspace{1cm}
+        \begin{tabbing}\songti\xiaosi
+                \hspace{9cm} \= 机构 \hspace{4em} \= 成员 \kill
+                \> 评阅人: \> \underline{\phantom{XXXXXXXXX}} \\
+                \> 答辩委员会: \> \underline{主席:\phantom{XXXXXX}} \\
+                \> \> \underline{成员:\phantom{XXXXXX}} \\
+                \> \> \underline{\phantom{XXXXXXXXX}} \\
+        \end{tabbing}
+
+\end{center}

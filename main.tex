@@ -1,0 +1,53 @@
+% !TEX root = main.tex
+
+%% 这是主文件
+%% 编译指令： xelatex -> bibtex -> xelatex -> xelatex
+
+\documentclass[UTF8,twoside,zihao=-4,AutoFakeBold,scheme=chinese,openany]{ctexbook}
+
+% 输入配置文件，例如调用的宏包（公式，插图等）
+\input{latex_settings/custom-chinese}
+
+% 设置编译文件，写作中间过程使用可减小编译时间
+% \includeonly{chapters/pagetitle-chinese}
+
+\begin{document}
+\pagestyle{empty}
+% 中文封面页
+\input{chapters/pagetitle-chinese}
+% 英文封面页
+\input{chapters/pagetitle-english}
+% 原创性声明
+\input{chapters/original}
+% 使用授权书
+\input{chapters/authorization}
+% 中文摘要页,开始以罗马字母计页码
+\frontmatter
+\pagestyle{MyStyle}
+\input{chapters/abs-chinese}
+% 英文摘要页
+\input{chapters/abs-english}
+% 目录
+\tableofcontents
+\thispagestyle{MyStyle}
+\clearpage
+% 符号及缩略词说明
+\thispagestyle{empty}
+\input{chapters/sym-def}
+% 开始章节写作,显示特定页眉页脚
+\mainmatter
+\pagestyle{headings}
+% 第1章
+\include{chapters/1-introduction}
+% 第2章
+\include{chapters/2-introduction}
+\backmatter
+% 参考文献
+\input{chapters/ref}
+% 附录
+\include{chapters/appden}
+% 科研成果
+\include{chapters/achievement}
+% 致谢
+\include{chapters/thanks}
+\end{document}
