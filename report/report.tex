@@ -1,0 +1,84 @@
+\documentclass{suesreport}
+\facultyname{这里是填写学院名称}
+\subjectname{这里是填写学科名称}
+\classnumber{这里是填写学号名称}
+\studentname{这里是学生姓名}
+\supervisor{这里是导师姓名}
+\datetime{\today}
+\titlefirstline{第一行题目}
+\titlesecondline{第二行题目}
+\begin{document}
+    \pagestyle{empty}
+    % 封面
+    \makecover
+    % 摘要
+    \begin{abstract}
+        (摘要内容)摘要部分要求是：宋体，五号，1.25倍行间距，首行缩进2字符，500字左右。
+
+        关键词部分，宋体，五号，关键词数量4-6个，用逗号分隔，末尾不打标点符号
+
+        \keywords{关键词A，关键词B，关键词C}
+    \end{abstract}
+    % 正文内容
+    \begin{center}
+        \heiti\sanhao{正\qquad 文}
+
+        \wuhao\qquad
+    \end{center}
+    \section{选题的来源、背景和意义}
+    \subsection{这是二级标题}
+    \subsubsection{这是三级标题}
+     (内容)
+
+     \begin{enumerate}[label=\arabic*. ]
+        \item 图：图题字体为五号楷体。引用图应在图题右上角标出文献来源。
+        
+        图号按顺序全文通排，如图1，图2等。如果图中含有几个不同部分，应将分图号标注在分图的左上角，并在图题下列出各部分内容。
+        
+        绘图必须工整、清晰、规范。其中机械零件图按机械制图规格要求；示意图应能清楚反映图示内容；照片应在右下角给出放大标尺；实验结果曲线图应制成方框图。
+        \item 表格：表格按顺序全文通排，如表1，表2等。表应有标题，字体为五号楷体，表内必须按规定的符号标注单位。
+        \item 公式：公式书写应在文中另起一行。公式后应注明序号，该序号按顺序全文通排。
+     \end{enumerate}
+    \section{文献综述}
+    \section{研究内容和创新点}
+    \section{研究方法和设计方案}
+    \section{研究重点、难点及解决方案}
+    \section{完成学位论文的计划安排}
+    \section{经费落实情况}
+    \section{预期学术成果及应用价值}
+    \section{参考文献}
+
+    参考文献格式：
+    \begin{enumerate}[label=\arabic*. ]
+        \item 按论文中参考文献出现的先后顺序用阿拉伯数字连续编号，将序号置于方括号内，并视具体情况将序号作为上角标，或作为论文的组成部分。如：“……李××［１］对此作了研究，数学模型见文献［2］。”
+        \item 参考文献中每条项目应齐全。文献中的作者不超过三位时全部列出；超过三位时一般只列前三位，后面加“等”字或“et al”；作者姓名之间用逗号分开；中外人名一律采用姓在前，名在后的著录法。
+    \end{enumerate}
+
+    
+    参考文献中著录格式示例：
+    \begin{enumerate}[label=（\arabic*） ]
+        \item 期刊
+        
+        [序号] 作者.题名[J].刊名,出版年份,卷号(期号):起止页码.
+        \item 专著
+        
+        [序号] 作者.书名:版本(第１版不标注) [M].出版地:出版者,出版年:起止页码.
+
+        \item 论文集
+        
+        [序号] 主编.论文集名[C].出版地:出版者,出版年:起止页码.
+
+        \item 学位论文
+        
+        [序号] 作者.题名[D].出版地:出版者,出版年:起止页码.
+
+        \item 专利
+        
+        [序号] 专利申请者.题名:专利号[P].公告日期.
+
+        \item 技术标准
+        
+        [序号] 起草责任者.标准名称:标准代号 标准顺序号－发布年[S].出版地:出版者,出版年度: 起止页码.
+    \end{enumerate}
+\end{document}
+
