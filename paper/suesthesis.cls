@@ -14,7 +14,6 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % 定义字号大小
 %设置字号
 
-\RequirePackage{ctexsize,type1cm}
 \newcommand{\yihao}{\fontsize{26pt}{39pt}\selectfont}
 \newcommand{\xiaoyi}{\fontsize{24pt}{36pt}\selectfont}   
 \newcommand{\erhao}{\fontsize{22pt}{33pt}\selectfont}          
@@ -29,20 +28,6 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % -----------------------------------------------------------------
 \LoadClass[UTF8,a4paper,cs4size,zihao=-4,linespread=1.5,space=auto]{ctexbook}
 % 正文中文为宋体，非中文为Times New Roman字体，小四，1.5倍行间距，首行缩进2字符。
-% 定义字号大小
-%设置字号
-\RequirePackage{ctexsize,type1cm}
-\newcommand{\yihao}{\fontsize{26pt}{39pt}\selectfont}
-\newcommand{\xiaoyi}{\fontsize{24pt}{36pt}\selectfont}   
-\newcommand{\erhao}{\fontsize{22pt}{33pt}\selectfont}          
-\newcommand{\xiaoer}{\fontsize{18pt}{27pt}\selectfont}          
-\newcommand{\sanhao}{\fontsize{16pt}{24pt}\selectfont}        
-\newcommand{\xiaosan}{\fontsize{15pt}{22.5pt}\selectfont}        
-\newcommand{\sihao}{\fontsize{14pt}{21pt}\selectfont}            
-\newcommand{\xiaosi}{\fontsize{12pt}{18pt}\selectfont}            
-\newcommand{\wuhao}{\fontsize{10.5pt}{15.75pt}\selectfont}
-\newcommand{\xiaowu}{\fontsize{9pt}{13.5pt}\selectfont}    
-\newcommand{\liuhao}{\fontsize{7.5pt}{11.25pt}\selectfont}
 
 \RequirePackage{fontspec}
 %设置英文字体 Times New Roman
@@ -141,6 +126,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \newtheorem{definition}{定义}
 \newtheorem{theorem}{定理}
 \newtheorem{lemma}{引理}
+%\newtheorem{proof}{证明}
 \newtheorem{corollary}{推论}
 \newtheorem{assumption}{假设}
 \newtheorem{conjecture}{猜想}
@@ -148,7 +134,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \newtheorem{principle}{定律}
 \newtheorem{problem}{问题}
 \newtheorem{example}{例}
-\newtheorem{proof}{证明}
+
 \newtheorem{solution}{解}
 % -----------------------------------------------------------------
 % 设置目录的格式
@@ -186,43 +172,6 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
     linkcolor=blue
 }
 %-----------------------------------------
-% 设置脚标注格式
-\RequirePackage{xunicode-addon}
-
-% 在圆圈当中使用特定的字体 \textcircled
-\AtBeginUTFCommand[\textcircled]{\begingroup\EnclosedNumbers}
-\AtEndUTFCommand[\textcircled]{\endgroup}
-
-% 为圆圈数字设置字符类和字体
-% ref: https://stone-zeng.github.io/2019-02-09-circled-numbers
-\xeCJKDeclareCharClass{Default}{"24EA, "2460->"2473, "3251->"32BF}
-\newfontfamily\EnclosedNumbers{Source Han Serif SC}
-
-% 接着，把脚注的输出样式调整为带圈数字
-\renewcommand\thefootnote{\textcircled{\@arabic\c@footnote}}
-
-% 第二步，在页面底部的脚注内容中，取消编号的上标样式
-
-\RequirePackage{xpatch}
-
-% 取消在脚注当中商标的样式
-\xpatchcmd\@makefntext
-  {{\hss\@makefnmark}}
-  {{\hss\@makefnmark@nosuperscript}\space}
-  {}{\fail}
-
-% old: superscript style
-% \def\@makefnmark{\hbox{\@textsuperscript{\normalfont\@thefnmark}}}
-
-% new: normal style, lower baseline
-% 设置新的脚标注样式
-\def\@makefnmark@nosuperscript{\lower .3ex \hbox{\normalfont\@thefnmark}}
-% 第三步，减小分隔正文和脚注的横线长度
-% shorten footnote rule
-\xpatchcmd\footnoterule
-  {.4\columnwidth}
-  {1in}
-  {}{\fail}
 
 % ----------------------------------------------
 % 设置插入的数学公式
@@ -253,7 +202,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \DeclareGraphicsExtensions{.pdf,.eps,.png,.jpg,.jpeg}
 \graphicspath{{figures/}}
 %% 并列子图
-\RequirePackage{subfigure}
+\RequirePackage{subfig}
 % 设置颜色
 \RequirePackage{xcolor,color}
 % 载入自动引用宏包
@@ -327,4 +276,5 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
   breaklines=true,                     % sets automatic line breaking
 }}{}
 
+\endinput
 
