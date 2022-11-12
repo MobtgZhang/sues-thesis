@@ -1,16 +1,16 @@
 %依赖的Latex版本
 \NeedsTeXFormat{LaTeX2e}[2005/12/01]
-\ProvidesClass{suesreport}[2022/11/11 v3.0 update  https://github.com/mobtgzhang/sues-thsis]
+\ProvidesClass{suesthesis}[2022/11/11 v3.0 update  https://github.com/mobtgzhang/sues-thsis]
 %使用xelex进行编译
 \RequirePackage{ifxetex}
 \RequireXeTeX
 \ifxetex\else
-\ClassError{suesreport}{You must use the `xelatex' driver\MessageBreak Please choose `xelatex'}{%
+\ClassError{suesthesis}{You must use the `xelatex' driver\MessageBreak Please choose `xelatex'}{%
 Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \fi
 % 初始化latex代码
-\newif\if@suesreport@bwprint\@suesreport@bwprintfalse
-\newif\if@suesreport@preface\@suesreport@prefacetrue
+\newif\if@suesthesis@bwprint\@suesthesis@bwprintfalse
+\newif\if@suesthesis@preface\@suesthesis@prefacetrue
 % 定义字号大小
 %设置字号
 
@@ -275,6 +275,13 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
   captionpos=t,                        % sets the caption-position to bottom
   breaklines=true,                     % sets automatic line breaking
 }}{}
+%---------------------------------------------------------
+
+% 文档开始导入默认配置
+\AtBeginDocument{\makeatletter\input{suesthesis.cfg}\makeatother}
 
 \endinput
+
+
+
 
