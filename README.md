@@ -42,16 +42,22 @@ git clone https://github.com/mobtgzhang/sues-thsis.git
 点击 [OverLeaf SUES模板链接]()即可。
 ## 支持作者
 本模板是本人按照学校提供的word模板修改而成，希望大家能在学习latex中进步，可以支持一下作者！
-<center>
-    <br>
-	<img src="imgs/alipay.jpg" width="30%" />
-	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-	<img src="imgs/wechat.jpg" width="30%" />
-	<br/>
-	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-</center>
+<table rules="none" align="center">
+	<tr>
+		<td>
+			<center>
+				<img src="imgs/alipay.jpg" width="51%" />
+				<br/>
+			</center>
+		</td>
+		<td>
+			<center>
+				<img src="imgs/wechat.jpg" width="60%" />
+				<br/>
+			</center>
+		</td>
+	</tr>
+</table>
 ## 参考
 
 + [GBT7714-2005标准下的BibTeX样式](https://github.com/Haixing-Hu/GBT7714-2005-BibTeX-Style)
