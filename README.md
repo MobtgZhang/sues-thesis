@@ -25,9 +25,9 @@ make wordcount          # 论文字数统计
 对于Windows用户，这里也提供了编译的脚本文件`Compile.bat`。可以直接双击编译也可以在命令行进行编译
 ```bat
 .\Compile.bat all    :: 编译生成paper.pdf
-.\Compile.bat clean    :: 编译生成paper.pdf
-.\Compile.bat cleanall    :: 编译生成paper.pdf
-.\Compile.bat wordcount    :: 编译生成paper.pdf
+.\Compile.bat clean    :: 删除编译所产生的中间文件
+.\Compile.bat cleanall    :: 删除paper.pdf 和所有中间文件
+.\Compile.bat wordcount    :: 论文字数统计
 ```
 更多模板使用方法，详细参考
 
@@ -46,7 +46,7 @@ git clone https://github.com/mobtgzhang/sues-thsis.git
 	<tr>
 		<td>
 			<center>
-				<img src="imgs/alipay.jpg" width="51%" />
+				<img src="imgs/alipay.jpg" width="52%" />
 				<br/>
 			</center>
 		</td>
@@ -58,6 +58,8 @@ git clone https://github.com/mobtgzhang/sues-thsis.git
 		</td>
 	</tr>
 </table>
+
+
 ## 参考
 
 + [GBT7714-2005标准下的BibTeX样式](https://github.com/Haixing-Hu/GBT7714-2005-BibTeX-Style)

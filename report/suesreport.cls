@@ -11,7 +11,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % 初始化latex代码
 \newif\if@suesreport@bwprint\@suesreport@bwprintfalse
 \newif\if@suesreport@preface\@suesreport@prefacetrue
-\LoadClass[UTF8,twoside,zihao=5,linespread=1.25,space=auto]{ctexart}
+\LoadClass[UTF8,a4paper,cs4size,zihao=5,linespread=1.25,space=auto]{ctexart}
 % 正文内容要求：宋体，五号，1.25倍行间距，首行缩进2字符，5000字左右
 % -----------------------------------------------------------------
 % 定义字号大小
@@ -42,7 +42,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 }
 % -----------------------------------------------------------------
 \RequirePackage{setspace}
-%\RequirePackage{fontspec}
+\RequirePackage{fontspec}
 %设置英文字体 Times New Roman
 \setmainfont{Times New Roman}
 \setmonofont{Courier New}
@@ -52,8 +52,8 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % 设置中文字体 宋体
 % 设置数字、英文字体加粗
 \setCJKmainfont[AutoFakeBold = {2.15}]{SimSun}
-%\setCJKsansfont{SimSun}
-%\setCJKmonofont{SimSun}
+\setCJKsansfont{SimSun}
+\setCJKmonofont{SimSun}
 %\RequirePackage[T1]{fontenc}
 % 每行缩进两个汉字
 \setlength\parindent{2em}
@@ -216,12 +216,6 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
         \quotation
     \fi}
   {\if@twocolumn\else\endquotation\newpage\null\fi}
-%\newcommand\keywords[1]{%
-%  \renewcommand{\suesreport@tokens@keywords}{#1}
-%  \par
-%  \vskip1ex
-%  {\noindent\zihao{-4}\heiti\gmcm@cap@keywordsname：}~{\suesreport@tokens@keywords}
-%}
 
 %定义标签的默认值
 \def\suesreport@value@facultyname{电子电气工程学院}
@@ -322,4 +316,6 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % 载入参考文献宏包，设置引用格式
 \RequirePackage{natbib}
 \setcitestyle{square,super}
+
+\endinput
 
