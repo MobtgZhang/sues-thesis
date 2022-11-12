@@ -44,7 +44,7 @@ git clone https://github.com/mobtgzhang/sues-thsis.git
 本模板是本人按照学校提供的word模板修改而成，希望大家能在学习latex中进步，可以支持一下作者！
 <center class="half">
     <img src="imgs/alipay.jpg" width="200"/>
-    <img src="imgs/wechat.jpg" width="300"/>
+    <img src="imgs/wechat.jpg" width="200"/>
 </center>
 
 ## 参考
