@@ -47,13 +47,11 @@ git clone https://github.com/mobtgzhang/sues-thsis.git
 		<td>
 			<center>
 				<img src="imgs/alipay.jpg" width="52%" />
-				<br/>
 			</center>
 		</td>
 		<td>
 			<center>
 				<img src="imgs/wechat.jpg" width="60%" />
-				<br/>
 			</center>
 		</td>
 	</tr>
