@@ -55,17 +55,17 @@ goto :EOF
 
 :thesis
 	echo %ESC%[33mCompile . . .%ESC%[0m
-	latexmk -quiet -file-line-error -halt-on-error -interaction=nonstopmode %THESIS% 2>nul
+	latexmk -pdfxe -quiet -file-line-error -halt-on-error -interaction=nonstopmode %THESIS% 2>nul
 goto :EOF
 
 :clean
 	echo %ESC%[33mClean files . . .%ESC%[0m
-	latexmk -quiet -c %THESIS% 2>nul
+	latexmk -pdfxe -quiet -c %THESIS% 2>nul
 goto :EOF
 
 :cleanall
 	echo %ESC%[33mClean files . . .%ESC%[0m
-	latexmk -quiet -C %THESIS% 2>nul
+	latexmk -pdfxe -quiet -C %THESIS% 2>nul
 	if exist %THESIS%.pdf (
 		echo %ESC%[31mClose the file: %ESC%[7m'%THESIS%.pdf'%ESC%[0;31m!%ESC%[0m
 		pause

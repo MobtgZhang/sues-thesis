@@ -21,10 +21,10 @@ endif
 all : $(THESIS).pdf
 
 $(THESIS).pdf : $(THESIS).tex FORCE_MAKE
-	@latexmk $(LATEXMK_OPT) $<
+	@latexmk -pdfxe $(LATEXMK_OPT) $<
 
 pvc : $(THESIS).tex
-	@latexmk $(LATEXMK_OPT_PVC) $(THESIS)
+	@latexmk -pdfxe $(LATEXMK_OPT_PVC) $(THESIS)
 
 view : $(THESIS).pdf
 	$(OPEN) $<
@@ -38,7 +38,7 @@ wordcount : $(THESIS).tex
 	@texcount $< -inc -chinese | awk '/total/ {getline; print "总字数（英文单词 + 中文字）\t:",$$4}'
 
 clean :
-	-@latexmk -c -silent $(THESIS).tex 2> /dev/null
+	-@latexmk -pdfxe -c -silent $(THESIS).tex 2> /dev/null
 
 cleanall :
-	-@latexmk -C -silent $(THESIS).tex 2> /dev/null
+	-@latexmk -pdfxe -C -silent $(THESIS).tex 2> /dev/null

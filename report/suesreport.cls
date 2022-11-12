@@ -5,15 +5,18 @@
 \RequirePackage{ifxetex}
 \RequireXeTeX
 \ifxetex\else
-\ClassError{suesthesis}{You must use the `xelatex' driver\MessageBreak Please choose `xelatex'}{%
+\ClassError{suesreport}{You must use the `xelatex' driver\MessageBreak Please choose `xelatex'}{%
 Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \fi
+% 初始化latex代码
+\newif\if@suesreport@bwprint\@suesreport@bwprintfalse
+\newif\if@suesreport@preface\@suesreport@prefacetrue
 \LoadClass[UTF8,twoside,zihao=5,linespread=1.25,space=auto]{ctexart}
 % 正文内容要求：宋体，五号，1.25倍行间距，首行缩进2字符，5000字左右
 % -----------------------------------------------------------------
 % 定义字号大小
 %设置字号
-\RequirePackage{ctex}
+
 \RequirePackage{ctexsize,type1cm}
 \newcommand{\yihao}{\fontsize{26pt}{39pt}\selectfont}
 \newcommand{\xiaoyi}{\fontsize{24pt}{36pt}\selectfont}   
@@ -38,45 +41,24 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
     right=2cm
 }
 % -----------------------------------------------------------------
-
 \RequirePackage{setspace}
-\RequirePackage{fontspec}
+%\RequirePackage{fontspec}
 %设置英文字体 Times New Roman
-\setmainfont[
-    AutoFakeBold,
-    BoldFont=Times New Roman,
-    ItalicFont=Times New Roman,
-    BoldItalicFont=Times New Roman,
-]{Times New Roman}
-\setsansfont[
-    AutoFakeBold,
-    BoldFont=Arial,
-    ItalicFont=Arial,
-    BoldItalicFont=Arial,
-]{Courier New}
+\setmainfont{Times New Roman}
 \setmonofont{Courier New}
+\setsansfont{Arial}
  % 设置字体
 
-%设置中文字体 宋体
-\setCJKmainfont[
-    AutoFakeBold = {2.15},
-    BoldFont=SimSun, 
-    ItalicFont=SimSun, 
-    BoldItalicFont=SimSun
-]{SimSun}
-\setCJKsansfont[
-    AutoFakeBold = {2.15},
-    BoldFont=SimSun, 
-    ItalicFont=SimSun, 
-    BoldItalicFont=SimSun
-]{SimSun}
-\setCJKmonofont{SimSun}
+% 设置中文字体 宋体
+% 设置数字、英文字体加粗
+\setCJKmainfont[AutoFakeBold = {2.15}]{SimSun}
+%\setCJKsansfont{SimSun}
+%\setCJKmonofont{SimSun}
+%\RequirePackage[T1]{fontenc}
 % 每行缩进两个汉字
 \setlength\parindent{2em}
 % 设置段与段之间的垂直距离 \parskip默认橡皮长度是0pt plus 1pt
 \setlength{\parskip}{0pt}
-% 设置数字、英文字体加粗
-\RequirePackage[T1]{fontenc}
 %-----------------------------------------
 % 设置章节中列表
 \RequirePackage{enumitem}
@@ -134,6 +116,9 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \RequirePackage{mathtools,amsmath,amsfonts,amssymb,amsthm,bm,mathrsfs}
 % 表格
 \RequirePackage{tabularx,array,caption}
+%% 长表格
+\RequirePackage{longtable}
+%% booktabs 提供了\toprule 等命令.三线表
 \RequirePackage{booktabs}
 \RequirePackage{makecell}                 % 三线表-竖线
 % 支持跨行和跨列
@@ -282,7 +267,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
         
         \begin{center}
             \linespread{1.0}
-            \heiti\xiaoyi\textbf{
+            \heiti\xiaoyi\bfseries{
             硕士研究生学位论文\\
                 开题报告
             }
@@ -327,7 +312,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
         \sihao
 
         \begin{center}
-            \songti\sihao\b{研~究~生~处~制}
+            \songti\sihao\bfseries{研~究~生~处~制}
         \end{center}
     \end{center}
     \newpage
