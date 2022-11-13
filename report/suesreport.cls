@@ -23,9 +23,9 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \newcommand{\erhao}{\fontsize{22pt}{33pt}\selectfont}          
 \newcommand{\xiaoer}{\fontsize{18pt}{27pt}\selectfont}          
 \newcommand{\sanhao}{\fontsize{16pt}{24pt}\selectfont}        
-\newcommand{\xiaosan}{\fontsize{15pt}{22.5pt}\selectfont}        
+\newcommand{\xiaosan}{\fontsize{15pt}{22.5pt}\selectfont}
 \newcommand{\sihao}{\fontsize{14pt}{21pt}\selectfont}            
-\newcommand{\xiaosi}{\fontsize{12pt}{18pt}\selectfont}            
+\newcommand{\xiaosi}{\fontsize{12pt}{18pt}\selectfont}
 \newcommand{\wuhao}{\fontsize{10.5pt}{15.75pt}\selectfont}
 \newcommand{\xiaowu}{\fontsize{9pt}{13.5pt}\selectfont}    
 \newcommand{\liuhao}{\fontsize{7.5pt}{11.25pt}\selectfont}
@@ -224,8 +224,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \def\suesreport@value@studentname{学生姓名}
 \def\suesreport@value@supervisor{导师姓名}
 \def\suesreport@value@datetime{\today}
-\def\suesreport@value@titlefirstline{开题论文题目}
-\def\suesreport@value@titlesecondline{}
+\def\suesreport@value@contenttitle{开题论文题目}
 \def\suesreport@value@keywords{关键词1，关键词2，关键词3}
 
 %定义用户填写上述标签对应值的命令,需要用户在主文档自行调用
@@ -235,8 +234,8 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \newcommand\subjectname[1]{\def\suesreport@value@subjectname{#1}}
 \newcommand\supervisor[1]{\def\suesreport@value@supervisor{#1}}
 \newcommand\datetime[1]{\def\suesreport@value@datetime{#1}}
-\newcommand\titlefirstline[1]{\def\suesreport@value@titlefirstline{#1}}
-\newcommand\titlesecondline[1]{\def\suesreport@value@titlesecondline{#1}}
+\newcommand\contenttitle[1]{\def\suesreport@value@contenttitle{#1}}
+
 %------------------------------------------------
 % 设置关键词
 % 宋体，五号，关键词数量4-6个，用逗号分隔，末尾不打标点符号
@@ -271,16 +270,9 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 
         \xiaoyi\qquad
 
-        \begin{table}[hbpt]
-            \centering
-            \linespread{1.3}
-            %黑体，三号，加粗，不需要第二行，则通过“表格”菜单删除
-            \heiti\sanhao\bfseries
-            \begin{tabular}{p{2.14cm}<{\centering}p{10cm}<{\centering}}
-                \heiti\xiaoer{题目：} & \suesreport@value@titlefirstline\\ 
-                & \suesreport@value@titlesecondline\\ 
-            \end{tabular}
-        \end{table}
+        \begin{center}
+            \heiti\bfseries\xiaoer{题目：} \heiti\sanhao\bfseries{\suesreport@value@contenttitle}
+        \end{center}
 
         \erhao\qquad
 
@@ -291,16 +283,20 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
         \begin{table}[hbpt]
             \centering
             \linespread{1.2}
-            \fangsong\sihao\bfseries
             %仿宋CB2312，四号，加粗
-            \begin{tabular}{p{3.28cm}<{\centering}p{5.86cm}<{\centering}}
-                学\qquad 院： &  \suesreport@value@facultyname\\
-                学\qquad 科： & \suesreport@value@subjectname\\
-                学\qquad 号： & \suesreport@value@classnumber\\
-                姓\qquad 名： & \suesreport@value@studentname\\
-                导\qquad 师： & \suesreport@value@supervisor\\
-                日\qquad 期： & \suesreport@value@datetime
-            \end{tabular}
+            \fangsong\sihao\bfseries{
+                \begin{tabular}{p{3.28cm}<{\centering}p{5.86cm}<{\centering}}
+                
+                    学\qquad 院： & \suesreport@value@facultyname\\
+                    学\qquad 科： & \suesreport@value@subjectname\\
+                    学\qquad 号： & \suesreport@value@classnumber\\
+                    姓\qquad 名： & \suesreport@value@studentname\\
+                    导\qquad 师： & \suesreport@value@supervisor\\
+                    日\qquad 期： & \suesreport@value@datetime
+                \end{tabular}
+            }
+            
+            
         \end{table}
 
         \sihao
