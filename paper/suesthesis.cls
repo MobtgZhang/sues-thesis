@@ -38,7 +38,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 
 % 设置中文字体 宋体
 % 设置数字、英文字体加粗
-\setCJKmainfont[AutoFakeBold = {2.15}]{SimSun}
+\setCJKmainfont{SimSun}
 \setCJKsansfont{SimSun}
 \setCJKmonofont{SimSun}
 % 每行缩进两个汉字
@@ -160,8 +160,8 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \makeatother
 
 % 设置目录字体尺寸
-\renewcommand{\cftchapfont}{\heiti\xiaosi}
-\renewcommand{\cftsecfont}{\heiti\wuhao}
+\renewcommand{\cftchapfont}{\heiti\xiaosi} %黑体，小四
+\renewcommand{\cftsecfont}{\heiti\wuhao} % 黑体，五号
 \renewcommand{\cftsubsecfont}{\heiti\wuhao}
 
 %-----------------------------------------
