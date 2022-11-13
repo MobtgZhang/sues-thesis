@@ -75,8 +75,8 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \RequirePackage[pagestyles]{titlesec}
 \RequirePackage{fancyhdr}
 \newpagestyle{MyStyle}{
-  \sethead{}{}{}
-  \setfoot{}{\Roman{page}}{}
+  \sethead[][][]{}{}{}
+  \setfoot[][\Roman{page}][]{}{\Roman{page}}{}
 }
 
 %重新设置plain
@@ -171,6 +171,9 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
     colorlinks=true,
     linkcolor=blue
 }
+% -----------------------------------------------
+% 设置交叉引用的包
+\RequirePackage{catchfilebetweentags}
 
 
 % ----------------------------------------------
@@ -182,7 +185,13 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \crefname{table}{表}{表}
 \crefname{equation}{式}{式}
 \renewcommand{\eqref}[1]{\labelcref{#1}~\namecref{#1}}
+% 定公式、图、表编号为"3-1"的形式，即分隔符由.变为短杠
+\renewcommand\theequation{\arabic{section}-\arabic{equation}}
+\renewcommand\thefigure{\arabic{section}-\arabic{figure}}
+\renewcommand\thetable{\arabic{section}-\arabic{table}}
 
+%各个章节重新引用定义
+%\crefname{section}{se}{}
 % -----------------------------------------------------------------
 % 数学环境, 定理等设置
 \newtheorem{definition}{定义}
@@ -280,7 +289,11 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \renewcommand{\algorithmicrequire}{\textbf{输入:}}
 \renewcommand{\algorithmicensure}{\textbf{输出:}}
 %-----------------------------------------
-
+% 生成指定长度的下划线，默认是4cm
+\makeatletter
+\newcommand\dlmu[2][4cm]{\hskip1pt\underline{\hb@xt@ #1{\hss#2\hss}}\hskip3pt}
+\makeatother
+%-----------------------------------------
 % 载入参考文献宏包，设置引用格式
 \RequirePackage{natbib}
 \setcitestyle{square,super}
@@ -389,7 +402,28 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 }{}
 
 %---------------------------------------------------------
+% 加入一个圆圈的脚注
+\makeatletter
+\newskip\@footindent
+\@footindent=1em
+\renewcommand\footnoterule{\kern-3\p@ \hrule width 0.4\columnwidth \kern 2.6\p@}
 
+\long\def\@makefntext#1{\@setpar{\@@par\@tempdima \hsize
+\advance\@tempdima-\@footindent
+\parshape \@ne \@footindent \@tempdima}\par
+\noindent \hbox to \z@{\hss\@thefnmark\hspace{0.2em}}#1}
+\renewcommand\thefootnote{\myfootnotestyle{\arabic{footnote}}}
+
+%以下选项选一
+\def\@makefnmark{\hbox{\textsuperscript{\@thefnmark}}}%正文中脚注标签采取上标形式
+%\def\@makefnmark{\hbox{\@thefnmark}}%正文中脚注标签与正文平齐
+%\def\@makefnmark{\hbox{【\@thefnmark{}】}}%正文中脚注标签加一个全角的方括号【】
+%数字单纯带圈，正常数字
+\newcommand\myfootnotestyle[1]{\ifcase#1 \or \ding{192}\or \ding{193}\or
+\ding{194}\or \ding{195}\or \ding{196}\or \ding{197}%
+\or \ding{198}\or \ding{199}\or \ding{200}\or \ding{201}\else *\fi\relax}
+
+%---------------------------------------------------------
 % 文档开始导入默认配置
 \AtBeginDocument{\makeatletter\input{suesthesis.cfg}\makeatother}
 
