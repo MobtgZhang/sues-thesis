@@ -1,1 +1,81 @@
-\section{公式、图表}
+% 定义一些常用的颜色标注
+\newcommand{\red}[1]{{\textcolor{red}{#1}}}%
+% 定义一个数学公式
+\newcommand{\argmin}{\mathop{\mathrm{argmin}}\limits}
+\newcommand{\argmax}{\mathop{\mathrm{argmax}}\limits}
+\chapter{公式、图表}
+\section{公式}
+
+方便快捷写入公式是\LaTeX 相对于Word编辑器最为主要的优势之一，特别是熟练掌握之后，在输入公式的时候具有非常大的提升效果。
+
+
+\LaTeX 中的公式分为两类，包括有\red{行内公式}和\red{行间公式}，例如这是一个行间公式$f(x)=\frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(x-\mu)^{2}}{2\sigma^{2}}\right)$，下面举例几个行间公式
+
+\begin{eqnarray}
+    f(x)&=&\dfrac{1}{\sqrt{2\pi}\sigma}\exp\left(-\dfrac{(x-\mu)^{2}}{2\sigma^{2}}\right)    
+\end{eqnarray}
+
+例如，定义一个分段函数
+\begin{eqnarray}
+    f(x)&=&\begin{cases}
+        -x^{3}+x+8&,x\leq{2}\\
+        \dfrac{1}{2}x^{2}&,2<x\leq{10}\\
+        x+10&,x>10
+    \end{cases}
+\end{eqnarray}
+
+也可以定义一个多行的连等的等式，定义如下所示
+\begin{eqnarray}
+    \cos{2x}&=\cos^{2}x-\sin^{2}x\\
+        &=2\cos^{2}x-1\\
+        &=1-2\sin^{2}
+\end{eqnarray}
+
+可以将多个等式对齐写在同一个语句块当中，例如麦克斯韦方程组
+
+积分形式：
+\begin{equation}
+    \begin{cases}
+        \displaystyle\oint_{l}\mathbf{H}\cdot{d}\mathbf{l}&=\displaystyle\iint_\mathbf{S}J\cdot{d}\mathbf{S}+\displaystyle\iint_{S}\dfrac{\partial\mathbf{D}}{\partial{t}}\cdot{dS}\\
+        \displaystyle\oint_{l}\mathbf{E}\cdot{d}\mathbf{l}&=-\displaystyle\iint_{S}\dfrac{\partial\mathbf{B}}{\partial{t}}\cdot{d}\mathbf{S}\\
+        \displaystyle\oint_{S}\mathbf{B}\cdot{d}\mathbf{S}&=0\\
+        \displaystyle\oint_{S}\mathbf{D}\cdot{d}\mathbf{S}&=\displaystyle\iiint_\mathbf{V}\rho{d}\mathbb{V}
+    \end{cases}
+\end{equation}
+
+微分形式：
+\begin{equation}
+    \begin{cases}
+        \nabla\times\mathbf{H}&=J+\dfrac{\partial\mathbf{D}}{\partial{t}}\\
+        \nabla\times\mathbf{E}&=-\dfrac{\partial\mathbf{B}}{\partial{t}}\\
+        \nabla\cdot\mathbf{B}&=0\\
+        \nabla\cdot\mathbf{H}&=\rho\\
+    \end{cases}
+    \label{equ:diff-function}
+\end{equation}
+
+带有矩阵定义的公式：
+\begin{equation}
+    \mathbf{H} = -\mathbf\mu \cdot \mathbf{B} = -\gamma B_o \mathbf{S}_z = -\frac{\gamma B_o\hbar}{2} 
+        \begin{bmatrix}
+            1& \cdots &1\\ 
+            \vdots & \ddots & \vdots \\
+            1 & \cdots & 1 
+        \end{bmatrix}.
+    \label{equ:matrix}
+\end{equation}
+
+在求解凸优化问题的时候，问题研究最后求解归结为以下的方程形式：
+\begin{equation}
+    \argmin_{x_{j},j=1,\cdots,N}\sum\limits_{j=1}^{N}c_{j}x_{j}
+\end{equation}
+\begin{eqnarray}
+    \text{s.t.}\begin{cases}
+        \sum\limits_{j=1}^{N}a_{ij}x_{j}=b_{i},&i=1,\cdots,{m}\\
+        x_{j}\geq{0},
+    \end{cases}
+\end{eqnarray}
+
+在文章当中每一个公式的后面均可以添加一个label的标签，这样就可以应用公式了，例如\cref{equ:matrix}就是刚刚我们表达的矩阵表达式。
+
+

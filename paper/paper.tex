@@ -14,10 +14,13 @@
     \input{chapters/abstract}
     \mainmatter
     %插入目录
+    \pagestyle{MyStyle}
     \tableofcontents
     \newpage
     % 符号及缩略词说明
+    \thispagestyle{empty}
     \input{chapters/sym-def}
+    \pagestyle{plain}
     % 第一章
     \input{chapters/introduction}
     % 第二章
@@ -30,6 +33,7 @@
     \input{chapters/others}
     % 第五章
     \input{chapters/summary}
+    \appendix
     % 参考文献
     \input{chapters/ref}
     % 附录

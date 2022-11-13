@@ -1,2 +1,16 @@
-\section{交叉引用、代码和链接}
+\chapter{交叉引用、链接}
+\section{交叉引用}
+这里的交叉引用指的是，需要再response.tex 中引用revision.tex的某一段文本，可以通过以下步骤实现：
 
+\begin{enumerate}[label=\arabic*]
+    \item 在 revision.tex 中，将需要引用的文本放在 \%<*tag> 和 \%</tag> 之间，即：
+    \begin{lstlisting}
+        %<*tag>
+        Here is the text to be cited.
+        %</tag>
+    \end{lstlisting}
+    \item 在 response.tex 中，利用 \verb|\ExecuteMetaData| 命令引用文本，
+
+    即：\verb|\ExecuteMetaData[revision]{tag}|
+
+\end{enumerate}

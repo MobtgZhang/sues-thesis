@@ -30,10 +30,24 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % 正文中文为宋体，非中文为Times New Roman字体，小四，1.5倍行间距，首行缩进2字符。
 
 \RequirePackage{fontspec}
-%设置英文字体 Times New Roman
-\setmainfont{Times New Roman}
-\setmonofont{Courier New}
-\setsansfont{Arial}
+%设置英文字体
+\setmainfont{Times New Roman}[
+    BoldFont = Times New Roman Bold,
+    ItalicFont = Times New Roman Italic,
+    BoldItalicFont = Times New Roman Bold Italic
+]
+
+\setsansfont{Times New Roman}[
+    BoldFont = Times New Roman Bold,
+    ItalicFont = Times New Roman Italic,
+    BoldItalicFont = Times New Roman Bold Italic
+]
+
+\setmonofont{Times New Roman}[
+    BoldFont = Times New Roman Bold,
+    ItalicFont = Times New Roman Italic,
+    BoldItalicFont = Times New Roman Bold Italic
+]
  % 设置字体
 
 % 设置中文字体 宋体
@@ -60,16 +74,17 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 %% 设置章节前的页码格式
 \RequirePackage[pagestyles]{titlesec}
 \RequirePackage{fancyhdr}
-\newpagestyle{AbstractStyle}{
+\newpagestyle{MyStyle}{
   \sethead{}{}{}
   \setfoot{}{\Roman{page}}{}
 }
+
 %重新设置plain
 \fancypagestyle{plain}{
     \fancyhf{}
     \fancyfoot[C]{\songti\xiaowu 第 \thepage 页}
     \fancyhead[L]{\songti\xiaowu 上海工程技术大学硕士学位论文}
-    \fancyhead[R]{\songti\xiaowu 第 \zhnum{chapter} 章 \quad }
+    \fancyhead[R]{\songti\xiaowu 第 \zhnum{chapter} 章 \quad\chaptertitle }
 }
 %设置双线页眉
 \makeatletter
@@ -111,39 +126,24 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
         nameformat={\heiti\sanhao\centering},
         titleformat={\heiti\sanhao\centering},
     },
+    chapter={
+        format={\bf\heiti\sihao},
+    },
     section={
-        format={\heiti\sihao},
+        format={\bf\heiti\xiaosi},
     },
     subsection={
-        format={\heiti\xiaosi},
+        format={\bf\heiti\xiaosi},
     },
     subsubsection={
-        format={\heiti\xiaosi},
+        format={\bf\heiti\xiaosi},
     }
 }
-% -----------------------------------------------------------------
-% 数学环境, 定理等设置
-\newtheorem{definition}{定义}
-\newtheorem{theorem}{定理}
-\newtheorem{lemma}{引理}
-%\newtheorem{proof}{证明}
-\newtheorem{corollary}{推论}
-\newtheorem{assumption}{假设}
-\newtheorem{conjecture}{猜想}
-\newtheorem{axiom}{公理}
-\newtheorem{principle}{定律}
-\newtheorem{problem}{问题}
-\newtheorem{example}{例}
 
-\newtheorem{solution}{解}
 % -----------------------------------------------------------------
-% 设置目录的格式
+% 设置目录当中的格式
 % 目录中的章加点
-\makeatletter
-\let\c@lofdepth\relax
-\let\c@lotdepth\relax
-\makeatother
-\RequirePackage[titles]{tocloft}
+\usepackage[titles]{tocloft}
 \renewcommand{\cftdot}{$\cdot$}
 \renewcommand{\cftdotsep}{1.5}
 \setlength{\cftbeforechapskip}{10pt}
@@ -160,8 +160,8 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \makeatother
 
 % 设置目录字体尺寸
-\renewcommand{\cftchapfont}{\heiti\xiaosi} %黑体，小四
-\renewcommand{\cftsecfont}{\heiti\wuhao} % 黑体，五号
+\renewcommand{\cftchapfont}{\heiti\xiaosi}
+\renewcommand{\cftsecfont}{\heiti\wuhao}
 \renewcommand{\cftsubsecfont}{\heiti\wuhao}
 
 %-----------------------------------------
@@ -171,11 +171,58 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
     colorlinks=true,
     linkcolor=blue
 }
-%-----------------------------------------
+
 
 % ----------------------------------------------
 % 设置插入的数学公式
 \RequirePackage{mathtools,amsmath,amsfonts,amssymb,amsthm,bm,mathrsfs}
+% 载入自动引用宏包
+\RequirePackage{cleveref}
+\crefname{figure}{图}{图}
+\crefname{table}{表}{表}
+\crefname{equation}{式}{式}
+\renewcommand{\eqref}[1]{\labelcref{#1}~\namecref{#1}}
+
+% -----------------------------------------------------------------
+% 数学环境, 定理等设置
+\newtheorem{definition}{定义}
+\crefname{definition}{定义}{定义}
+
+\newtheorem{theorem}{定理}
+\crefname{theorem}{定理}{定理}
+
+\newtheorem{lemma}{引理}
+\crefname{lemma}{引理}{引理}
+
+\let\proof\relax
+\let\endproof\relax
+\newtheorem{proof}{证明}
+\crefname{proof}{证明}{证明}
+
+\newtheorem{corollary}{推论}
+\crefname{corollary}{推论}{推论}
+
+\newtheorem{assumption}{假设}
+\crefname{assumption}{假设}{假设}
+
+\newtheorem{conjecture}{猜想}
+\crefname{conjecture}{猜想}{猜想}
+
+\newtheorem{axiom}{公理}
+\crefname{axiom}{公理}{公理}
+
+\newtheorem{principle}{定律}
+\crefname{principle}{定律}{定律}
+
+\newtheorem{problem}{问题}
+\crefname{problem}{问题}{问题}
+
+\newtheorem{example}{例}
+\crefname{example}{例}{例}
+
+\newtheorem{solution}{解}
+\crefname{solution}{解}{解}
+%-----------------------------------------
 \RequirePackage{float}
 % 设置浮动体的标题
 \RequirePackage{caption}
@@ -183,6 +230,8 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \RequirePackage{tabularx,array}
 %% 长表格
 \RequirePackage{longtable}
+% 用于插入表格当中斜线
+\RequirePackage{diagbox}
 % 设置插入的三线表
 \RequirePackage{booktabs}
 \RequirePackage{makecell}                 % 三线表-竖线
@@ -197,7 +246,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \RequirePackage{cprotect}
 %% 设置插入的图片
 \RequirePackage{graphicx}
-\RequirePackage{}
+
 %% 如果插入的图片没有指定扩展名，那么依次搜索下面的扩展名所对应的文件
 \DeclareGraphicsExtensions{.pdf,.eps,.png,.jpg,.jpeg}
 \graphicspath{{figures/}}
@@ -205,12 +254,15 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \RequirePackage{subfig}
 % 设置颜色
 \RequirePackage{xcolor,color}
-% 载入自动引用宏包
-\RequirePackage{cleveref}
-\crefname{figure}{图}{图}
-\crefname{table}{表}{表}
-\crefname{equation}{式}{式}
-\renewcommand{\eqref}[1]{\labelcref{#1}~\namecref{#1}}
+% 用于设置
+\usepackage{pifont}       % \ding{xx}
+\usepackage{bbding}       % \Checkmark,\XSolid,... (需要和pifont宏包共同使用)
+\usepackage{fontawesome}  % \faCheck,\faTimes
+% 采用如下宏定义更方便
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+\newcommand{\crossmark}{\ding{53}}
+
 %---------------------------------
 % 使用tikz进行画图
 %\def\pgfsysdriver{pgfsys -dvipdfmx.def}
@@ -220,61 +272,122 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \pgfplotsset{compat=1.18}
 % 设置插入的列表信息
 \RequirePackage{enumitem}
-
+%--------------------------------
+% 设置算法
+\RequirePackage[noend]{algpseudocode}
+\RequirePackage{algorithmicx,algorithm}
+\floatname{algorithm}{算法}
+\renewcommand{\algorithmicrequire}{\textbf{输入:}}
+\renewcommand{\algorithmicensure}{\textbf{输出:}}
 %-----------------------------------------
+
 % 载入参考文献宏包，设置引用格式
 \RequirePackage{natbib}
 \setcitestyle{square,super}
 %-----------------------------------------
 % 设置代码插入格式
 % 设置代码环境
+% 定义常见的一些代码颜色，关键字信息
+\definecolor{mKeyword}{rgb}{0,0,1.0}
+\definecolor{mString}{rgb}{0.75,0,0.75}
+\definecolor{mComment}{rgb}{0.58,0,0.82}
 \RequirePackage{listings,color}
-\lstnewenvironment{Matlab}[1]{
-\lstset{language=matlab,               % choose the language of the code
-  xleftmargin=20pt,
-  xrightmargin=20pt,
-  frame=tlbr,framesep=4pt,framerule=0.5pt, % sets the frame style
-  %frame=shadowbox,rulesepcolor=\color{red!20!green!20!blue!20},
-  basicstyle=\small\fontspec{Courier New},
-  keywordstyle={\color{mKeyword}},     % sets color for keywords
-  stringstyle={\color{mString}},       % sets color for strings
-  commentstyle={\color{mComment}},     % sets color for comments
-  backgroundcolor=\color{gray!5},%\color{pBackground}, % choose the background color
-  rulecolor=\color{gray!50},
-  title=#1,                            % \lstname show the filename of files
-  keywords={break,case,catch,classdef,continue,else,elseif,end,for,
-  function,global,if,otherwise,parfor,persistent,return,spmd,switch,try,while},
-  showspaces=false,                    % show spaces adding particular underscores
-  showstringspaces=false,              % underline spaces within strings
-  showtabs=false,                      % show tabs within strings adding particular underscores
-  tabsize=4,                           % sets default tabsize to 2 spaces
-  captionpos=t,                        % sets the caption-position to bottom
-  breaklines=true,                     % sets automatic line breaking
-}}{}
+% 设置matlab代码环境
+\lstnewenvironment{Matlab}[1][]{
+	\lstset{
+		language=Matlab,
+        backgroundcolor=\color{lightgray},	
+		keywordstyle=\color{mKeyword},% 设置关键词样式
+		stringstyle=\color{mString},% 设置字符串样式
+		commentstyle=\songti\color{mComment},% 设置注释样式
+        basicstyle=\footnotesize\fontspec{Consolas}, % 设置代码字体
+        frame=shadowbox, % 阴影效果
+        rulesepcolor= \color{ red!20!green!20!blue!20} ,
+		#1
+	}
+}{}
+% 设置python代码环境
+% 定义常见的一些代码颜色，关键字信息
+\definecolor{pKeyword}{rgb}{1.0,0.46,0}
+\definecolor{pString}{rgb}{0,0.66,0}
+\definecolor{pComment}{rgb}{0.86,0,0}
+\definecolor{pBuiltins}{rgb}{0.56,0,0.56}
+\lstnewenvironment{Python}[1][]{
+	\lstset{
+		language=Python,
+        backgroundcolor=\color{lightgray},
+		keywordstyle=\color{pKeyword},% 设置Keywords样式
+		morekeywords={as},% 将特定单词加入Kewords中
+		deletekeywords={print},%从 keywords中去除特定单词
+		keywordstyle=[2]\color{pBuiltins},% 设置Builtins样式
+		morekeywords=[2]{print},% 将特定单词加入Builtins中
+		stringstyle=\color{pString},% 设置字符串样式
+		commentstyle=\songti\color{pComment},% 设置注释样式	
+        basicstyle=\footnotesize\fontspec{Consolas}, % 设置代码字体
+        frame=shadowbox, % 阴影效果
+        rulesepcolor= \color{ red!20!green!20!blue!20} ,
+		#1
+        % 
+	}
+}{}
 
-\lstnewenvironment{Python}[1]{
-\lstset{language=python,               % choose the language of the code
-  xleftmargin=20pt,
-  xrightmargin=20pt,
-  frame=single,framesep=4pt,framerule=0.5pt, % sets the frame style
-  %frame=shadowbox,rulesepcolor=\color{red!20!green!20!blue!20},
-  basicstyle=\small\ttfamily,          % sets font style for the code
-  %basicstyle=\footnotesize\fontspec{Consolas},
-  keywordstyle=\color{pKeyword},       % sets color for keywords
-  stringstyle=\color{pString},         % sets color for strings
-  commentstyle=\color{pComment},       % sets color for comments
-  backgroundcolor=\color{gray!5},%\color{pBackground}, % choose the background color
-  rulecolor=\color{gray!50},
-  title=#1,                            % \lstnames how the filename of files
-  emph={format_string,eff_ana_bf,permute,eff_ana_btr},
-  emphstyle=\color{pIdentifier}
-  showspaces=false,                    % show spaces adding particular underscores
-  showstringspaces=false,              % underline spaces within strings
-  showtabs=false,                      % show tabs within strings adding particular underscores
-  tabsize=4,                           % sets default tabsize to 2 spaces
-  captionpos=t,                        % sets the caption-position to bottom
-  breaklines=true,                     % sets automatic line breaking
-}}{}
+% 设置C/C++代码环境
+\lstnewenvironment{CPlusPlus}[1][]{
+	\lstset{
+		language=C++,
+        backgroundcolor=\color{lightgray},
+		keywordstyle=\color{blue}\bfseries,
+		morekeywords={*,define,*,include...},% 将特定单词加入Kewords中
+		keywordstyle=[2]\color{pBuiltins},% 设置Builtins样式
+		morekeywords=[2]{print},% 将特定单词加入Builtins中
+		stringstyle=\color{purple},% 设置字符串样式
+		commentstyle=\songti\color{pComment},% 设置注释样式	
+        basicstyle=\footnotesize\fontspec{Consolas}, % 设置代码字体
+        frame=shadowbox, % 阴影效果
+        rulesepcolor= \color{ red!20!green!20!blue!20} ,
+        tabsize=4,
+        title=\lstname
+		#1
+        % 
+	}
+}{}
+\lstnewenvironment{CLanguage}[1][]{
+	\lstset{
+		language=C,
+        backgroundcolor=\color{lightgray},
+		keywordstyle=\color{blue}\bfseries,
+		morekeywords={*,define,*,include...},% 将特定单词加入Kewords中
+		keywordstyle=[2]\color{pBuiltins},% 设置Builtins样式
+		morekeywords=[2]{print},% 将特定单词加入Builtins中
+		stringstyle=\color{purple},% 设置字符串样式
+		commentstyle=\songti\color{pComment},% 设置注释样式	
+        basicstyle=\footnotesize\fontspec{Consolas}, % 设置代码字体
+        frame=shadowbox, % 阴影效果
+        rulesepcolor= \color{ red!20!green!20!blue!20} ,
+        tabsize=4,
+        title=\lstname
+		#1
+        % 
+	}
+}{}
+\lstnewenvironment{Java}[1][]{
+	\lstset{
+		language=Java,
+        backgroundcolor=\color{lightgray},
+		keywordstyle=\color{blue}\bfseries,
+		keywordstyle=[2]\color{pBuiltins},% 设置Builtins样式
+		stringstyle=\color{purple},% 设置字符串样式
+		commentstyle=\songti\color{pComment},% 设置注释样式	
+        basicstyle=\footnotesize\fontspec{Consolas}, % 设置代码字体
+        frame=shadowbox, % 阴影效果
+        rulesepcolor= \color{ red!20!green!20!blue!20} ,
+        tabsize=4,
+        title=\lstname
+		#1
+        % 
+	}
+}{}
+
 %---------------------------------------------------------
 
 % 文档开始导入默认配置

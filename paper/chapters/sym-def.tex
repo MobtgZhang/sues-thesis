@@ -5,20 +5,23 @@
 
 对文中所用符号缩略词所表示的意义及单位（或量纲）的说明。在目录中不出现。若不需要说明，则删除此页。
 
-这里使用三线表举个例子。
+这里使用三线表举个例子。这里的符号描述可以使用三线表描述一些符号和缩略词，在学术文章当中经常使用到的一种表格。插入表格，一般最上面线和最下面线宽度为1.5pt，中间线条宽度为0.75pt。表格线宽度设置需要用到booktabs包，这个包当中包含有toprule、midrule和bottomrule三类线。下面\cref{tab:latex-sys-def}是一个三线表简单的例子
 \begin{table}[hbpt]
     \centering
     \linespread{1.2}
+    \caption{一个三线表的示例}
     \begin{tabular}{p{0.2\textwidth}<{\centering}p{0.6\textwidth}<{\centering}}
         \toprule[1.5pt]
         符号表示 & 符号意义\\
-        \midrule[1pt]
+        \midrule[0.75pt]
         $e$& 数学自然对数\\
         $\pi$& 数学圆周率\\
         $\epsilon$ & 介电值常数\\
         $G$ & 万有引力常数\\
+        $k$ & 玻尔兹曼常数\\
         \bottomrule[1.5pt]
     \end{tabular}
+    \label{tab:latex-sys-def}
 \end{table}
 \newpage
 %

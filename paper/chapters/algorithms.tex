@@ -1,2 +1,203 @@
-\section{算法、数学定义等}
+\chapter{算法、数学定义等}
+\section{算法}
+
+有时候我们在论文中提到一种算法需要插入代码和一些流程代码来详细说明我们所提出的算法内容，或者是说需要插入一个伪代码片段来说明算法的流程，就此下面详细说明这一个问题。
+\subsection{插入代码}
+这里我们举例四种语言，即C/C++语言，Java语言，Python语言和MATLAB语言。
+
+\begin{itemize}
+    \item C 语言
+\begin{CLanguage}
+# include<sdtio.h>
+int main(){
+    printf("This is C language block.");
+    return 0;
+}
+\end{CLanguage}
+\item C++ 语言
+\begin{CPlusPlus}
+# include<iostream>
+int main(){
+    std:::cout<<"This is C++ programing language."<<std::endl;
+    return 0;
+}
+\end{CPlusPlus}
+    \item Java 语言
+\begin{Java}
+public class Main{
+    public static void main(String [] args ){
+        System.out.printf("This is a Java programing.");
+    }
+}
+\end{Java}
+    \item Python 语言
+\begin{Python}
+def partition(arr,low,high): 
+    i = ( low-1 )         # 最小元素索引
+    pivot = arr[high]     
+    for j in range(low , high): 
+        # 当前元素小于或等于 pivot 
+        if   arr[j] <= pivot: 
+            i = i+1 
+            arr[i],arr[j] = arr[j],arr[i] 
+    arr[i+1],arr[high] = arr[high],arr[i+1] 
+    return ( i+1 ) 
+# arr[] --> 排序数组
+# low  --> 起始索引
+# high  --> 结束索引
+# 快速排序函数
+def quickSort(arr,low,high): 
+    if low < high: 
+        pi = partition(arr,low,high) 
+        quickSort(arr, low, pi-1) 
+        quickSort(arr, pi+1, high) 
+arr = [10, 7, 8, 9, 1, 5] 
+n = len(arr) 
+quickSort(arr,0,n-1) 
+print ("排序后的数组:") 
+for i in range(n): 
+    print ("%d" %arr[i]),
+\end{Python}  
+\item Matlab 语言
+\begin{Matlab} 
+    kk=2;[mdd,ndd]=size(dd);
+    while ~isempty(V)
+        [tmpd,j]=min(W(i,V));tmpj=V(j);
+        for k=2:ndd
+            [tmp1,jj]=min(dd(1,k)+W(dd(2,k),V));
+            tmp2=V(jj);tt(k-1,:)=[tmp1,tmp2,jj];
+        end
+        tmp=[tmpd,tmpj,j;tt];[tmp3,tmp4]=min(tmp(:,1));
+        if tmp3==tmpd
+            ss(1:2,kk)=[i;tmp(tmp4,2)];
+        else
+            tmp5=find(ss(:,tmp4)~=0);tmp6=length(tmp5);
+            if dd(2,tmp4)==ss(tmp6,tmp4)
+                ss(1:tmp6+1,kk)=[ss(tmp5,tmp4);tmp(tmp4,2)];
+            else
+                ss(1:3,kk)=[i;dd(2,tmp4);tmp(tmp4,2)];
+            end
+        end
+        dd=[dd,[tmp3;tmp(tmp4,2)]];V(tmp(tmp4,3))=[];
+        [mdd,ndd]=size(dd);kk=kk+1;
+    end
+    S=ss;D=dd(1,:);
+    \end{Matlab}
+\end{itemize}
+
+\subsection{插入伪代码}
+
+下面是一个粒子群算法的伪代码
+\begin{center}
+    \begin{minipage}{0.8\textwidth}
+        \begin{algorithm}[H]%[!htp]
+            \caption{粒子群算法} %算法的名字
+            {\bf 输入:} %算法的输入， \hspace*{0.02in}用来控制位置，同时利用 \\ 进行换行
+            群体规模$N$，每个粒子的位置$x_{i}$和速度$v_{i}$\\
+            {\bf 输出:} %算法的结果输出
+            output result
+        \begin{algorithmic}[1]
+            \State 初始化粒子群 % \State 后写一般语句
+            \While{不满足结束条件} % For 语句，需要和EndFor对应
+                \State 计算每个粒子的适应度$F_{it}(i)$
+                \State 对每个粒子，用它的适应度值$F_{it}(i)$和个体极值$P_{\text{best}}(i)$比较，如果$F_{it}(i)>P_{\text{best}}(i)$，则用$F_{it}(i)$替换掉$P_{\text{best}}(i)$；
+                \State 对每个粒子，用它的适应度值$F_{it}(i)$和全局极值$g_{\text{best}}$比较，如果$F_{it}(i)>g_{\text{best}}$，则使用$F_{it}(i)$替换$g_{\text{best}}$；
+                \State 更新例子的速度$v_{i}$和位置$x_{i}$。
+            \EndWhile
+            \State \Return result
+            \end{algorithmic}
+        \end{algorithm}
+    \end{minipage}
+    \label{algo:pso_algoritm}
+\end{center}
+\section{数学定义等}
+
+在文章当中，有些地方需要一些数学的定义、解释、证明等等，这需要一定的格式，这里提供了以下若干个数学当中需要的命令：
+
+下面简单介绍一下定理、证明等环境的使用
+\begin{definition}[$\varepsilon-\delta$极限定义]
+	如果对于$\forall\varepsilon>0$（不论它多么小），$\exists\delta>0$，是的对于适合不等式
+    \begin{equation}
+        0<\left|x-x_{0}\right|<\delta
+    \end{equation}
+    的一切$x$，对应的函数值$f(x)$均满足不等式
+    \begin{equation}
+        \left|f(x)-A\right|<\varepsilon
+    \end{equation}
+    那么常数$A$就叫做函数$f(x)$当$x\rightarrow{x_{0}}$时的极限，记作
+    \begin{equation}
+        \lim\limits_{x\rightarrow{x_{0}}}f(x)=A\text{  Or } f(x)\rightarrow{A}\text{ When }x\rightarrow{x_{0}}
+    \end{equation}
+	\label{def:nosense}
+\end{definition}
+\cref{def:nosense}从根本上定义了极限。
+
+除了 definition 环境，还可以使用 theorem 、lemma、corollary、assumption、conjecture、axiom、principle、problem、example、proof、solution 这些环境，根据论文的实际需求合理使用。
+
+\begin{theorem}[勾股定理]
+	在平面上的一个直角三角形中，两个直角边边长（a,b）的平方加起来等于斜边长（c）的平方。
+	\label{thm:example}
+\end{theorem}
+由\cref{thm:example}我们知道了勾股定理的使用。
+
+\begin{lemma}
+	设素数$p>3$,那么不定方程$x^{2}+3y^{2}=p$有解的充要条件是$\left(\dfrac{-3}{p}\right)$,即$p$是形如$6k+1$的素数。
+	\label{lem:example}
+\end{lemma}
+由\cref{lem:example}我们知道了引理。所以证明如下所示
+
+
+\begin{proof}
+	这是一个证明环境。
+	\label{prf:example}
+\end{proof}
+由\cref{prf:example}我们知道了证明环境的使用。
+
+\begin{corollary}
+	这是一个推论。
+	\label{cor:example}
+\end{corollary}
+由\cref{cor:example}我们知道了推论环境的使用。
+ 
+\begin{assumption}
+	这是一个假设。
+	\label{asu:example}
+\end{assumption}
+由\cref{asu:example}我们知道了假设环境的使用。
+ 
+\begin{conjecture}
+	这是一个猜想。
+	\label{con:example}
+\end{conjecture}
+由\cref{con:example}我们知道了猜想环境的使用。
+ 
+\begin{axiom}
+	这是一个公理。
+	\label{axi:example}
+\end{axiom}
+由\cref{axi:example}我们知道了公理环境的使用。
+ 
+\begin{principle}
+	这是一个定律。
+	\label{pri:example}
+\end{principle}
+由\cref{pri:example}我们知道了定律环境的使用。
+ 
+\begin{problem}
+	这是一个问题。
+	\label{pro:example}
+\end{problem}
+由\cref{pro:example}我们知道了问题环境的使用。
+ 
+\begin{example}
+	这是一个例子。
+	\label{exa:example}
+\end{example}
+由\cref{exa:example}我们知道了例子环境的使用。
+ 
+\begin{solution}
+	这是一个解。
+	\label{sol:example}
+\end{solution}
+由\cref{sol:example}我们知道了解环境的使用。
 
