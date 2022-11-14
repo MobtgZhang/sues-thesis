@@ -88,16 +88,19 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \RequirePackage[pagestyles]{titlesec}
 \RequirePackage{fancyhdr}
 \newpagestyle{AbstractStyle}{
+    \fancyhf{}
   \setfoot{}{\Roman{page}}{}
 }
-% 设置附录的页面格式
-\newpagestyle{AppendixStyle}{
-    \setfoot{}{\songti\xiaowu 第 \thepage 页}{}
-    \sethead{\songti\xiaowu 上海工程技术大学硕士学位论文}{}{\songti\xiaowu \quad\chaptertitle}
-}
+%\AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{empty}}}
 
 %重新设置plain
-\fancypagestyle{plain}{
+\fancypagestyle{AppendixStyle}{
+    \fancyhf{}
+    \fancyfoot[C]{\songti\xiaowu 第 \thepage 页}
+    \fancyhead[L]{\songti\xiaowu 上海工程技术大学硕士学位论文}
+    \fancyhead[R]{\songti\xiaowu \quad\chaptertitle }
+}
+\fancypagestyle{DocumentStyle}{
     \fancyhf{}
     \fancyfoot[C]{\songti\xiaowu 第 \thepage 页}
     \fancyhead[L]{\songti\xiaowu 上海工程技术大学硕士学位论文}

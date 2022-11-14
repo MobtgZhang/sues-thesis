@@ -11,7 +11,7 @@
     \input{covers/authorization}
     % 从这里开始生成目录部分页码
     \frontmatter
-    \pagestyle{AbstractStyle}
+    % \pagestyle{AbstractStyle}
     % 中文摘要和英文摘要
     \input{chapters/abstract}
     %插入目录
@@ -20,9 +20,9 @@
     % 符号及缩略词说明
     \thispagestyle{empty}
     \input{chapters/sym-def}
-    % 从这里开始生成文章部分页码
     \mainmatter
-    \pagestyle{plain}
+    % 从这里开始生成文章部分页码
+    \pagestyle{DocumentStyle}
     % 第一章
     \input{chapters/introduction}
     % 第二章
@@ -43,9 +43,9 @@
     % 附录
     \input{chapters/appendix}
     % 攻读硕士学位期间发表的论文
-    \input{chapters/achievements}
+    %\input{chapters/achievements}
     % 致谢
-    \input{chapters/thanks}
+    %\input{chapters/thanks}
     
 \end{document}
 
