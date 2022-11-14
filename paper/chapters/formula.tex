@@ -87,7 +87,7 @@
     \newcolumntype{C}{>{\centering \arraybackslash}X}
     \newcolumntype{R}{>{\raggedright \arraybackslash}X}
     \centering
-    \caption{某校学生身高体重样本}
+    \bicaption{某校学生身高体重样本}{Height and weight samples of students in a school}
     \label{tab:heightweight}
     \begin{tabularx}{0.9\textwidth}{CCCC}
        \toprule[1.5pt]
@@ -107,7 +107,7 @@
 表\ref{tab:some_products_datasets}所示是一个简单的双并排表的一个画法。
 \begin{table}[htp!]
     \centering
-    \caption{某行业产量与生产费用的数据}
+    \bicaption{某行业产量与生产费用的数据}{Data of output and production cost of an industry}
     \label{tab:some_products_datasets}
     \newcolumntype{Y}{>{\centering\arraybackslash}X}
     \newcolumntype{Z}{!{\vline}@{\color{white}\vrule width \doublerulesep}!{\vrule}}%自定义列格式(双线)
@@ -129,7 +129,7 @@
 
 \begin{table}[hbpt]
     \centering
-    \caption{一个数据表例子}
+    \bicaption{一个数据表例子}{An example of a data table}
     \label{tab:model_dataset}
     \begin{tabular}{c|p{1cm}<{\centering}p{1cm}<{\centering}p{1cm}<{\centering}p{1cm}<{\centering}p{1cm}<{\centering}p{1cm}<{\centering}p{2cm}<{\centering}}
         \Xhline{2pt}
@@ -159,7 +159,7 @@
 \begin{figure}[hbpt]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/test.jpg}
-    \caption{这里插入了一个普通的相片}
+    \bicaption{这里插入了一个普通的相片}{An ordinary photo is inserted here}
     \label{fig:my_pic1}
 \end{figure}
 \subsection{多图插图方法}
@@ -191,7 +191,7 @@
         \end{minipage}
     }
     \centering
-    \caption{示例的四张风景图片}
+    \bicaption{示例的四张风景图片}{Four landscape pictures of the example}
 \end{figure}
 
 \subsection{latex自带的一些插图方法}
@@ -204,7 +204,7 @@
 
 \begin{figure}
     \centering
-    \caption{latex自带工具画图}
+    \bicaption{latex自带工具画图}{Drawing of latex built-in tools}
     \label{fig:complex_fig}
     \subfloat[复杂网络结构图]{
         \begin{minipage}[t]{0.9\linewidth}
