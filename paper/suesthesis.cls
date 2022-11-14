@@ -184,8 +184,8 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % 设置引用格式
 \RequirePackage{url,hyperref}
 \hypersetup{
-    colorlinks=true,
-    linkcolor=blue
+    hidelinks,
+    citecolor=black
 }
 % -----------------------------------------------
 % 设置交叉引用的包
