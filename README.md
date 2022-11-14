@@ -36,6 +36,17 @@ make wordcount          # 论文字数统计
 ```bash
 git clone https://github.com/mobtgzhang/sues-thsis.git
 ```
+### 可能出现的一些问题
+Linux和MacOS可能会出现字体问题，解决的方法可以修改`cls`中`setCJKmainfont`字体，将`SimSun`修改为`STSongti-SC-Regular`字体。
+
+Linux由于缺少Windows字体，可以使用下面的方法添加Windows字体到Linux系统当中。
+```bash
+sudo mkdir -p /usr/share/fonts/winfonts # 共享文件夹下创建Windows字体库
+sudo cp <Windows/Fonts/*> /usr/share/fonts/winfonts/ # 将Windows字体复制到对应的文件夹下面，注意将标定的文件夹替换为Windows所在的目录
+sudo mkfontdir
+sudo mkfontscale
+sudo fc-cache -v
+```
 
 ## overleaf 使用方法
 点击下面链接访问即可
