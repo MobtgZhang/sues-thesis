@@ -1,6 +1,19 @@
 %依赖的Latex版本
 \NeedsTeXFormat{LaTeX2e}[2005/12/01]
 \ProvidesClass{suesthesis}[2022/11/11 v3.0 update  https://github.com/mobtgzhang/sues-thsis]
+
+%% Inital Code 
+\newif\if@suesthesis@bwprint\@suesthesis@bwprintfalse
+\newif\if@suesthesis@preface\@suesthesis@prefacetrue
+%% Declaration of Options 
+\DeclareOption{colorprint}{\@suesthesis@bwprintfalse}
+\DeclareOption{bwprint}{\@suesthesis@bwprinttrue}
+\DeclareOption{withoutpreface}{\@suesthesis@prefacefalse}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
+%% Executing of Options
+\ExecuteOptions{colorprint}
+\ProcessOptions\relax
+
 %使用xelex进行编译
 \RequirePackage{ifxetex}
 \RequireXeTeX
@@ -52,9 +65,9 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 
 % 设置中文字体 宋体
 % 设置数字、英文字体加粗
-\setCJKmainfont{SimSun}
-\setCJKsansfont{SimSun}
-\setCJKmonofont{SimSun}
+%\setCJKmainfont{SimSun}
+%\setCJKsansfont{SimSun}
+%\setCJKmonofont{SimSun}
 % 每行缩进两个汉字
 \setlength\parindent{2em}
 % 页面设置装订线留1厘米，位置在左边。页边距上下分别为3厘米、2.5厘米，左右分别为2厘米、2.5厘米。本模板已按要求设置好页面。
