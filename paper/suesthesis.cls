@@ -1,7 +1,7 @@
 %依赖的Latex版本
 \NeedsTeXFormat{LaTeX2e}[2005/12/01]
 \ProvidesClass{suesthesis}[2022/11/11 v3.0 update  https://github.com/mobtgzhang/sues-thsis]
-
+%使用xelex进行编译
 %% Inital Code 
 \newif\if@suesthesis@bwprint\@suesthesis@bwprintfalse
 \newif\if@suesthesis@preface\@suesthesis@prefacetrue
@@ -14,7 +14,6 @@
 \ExecuteOptions{colorprint}
 \ProcessOptions\relax
 
-%使用xelex进行编译
 \RequirePackage{ifxetex}
 \RequireXeTeX
 \ifxetex\else
@@ -41,7 +40,6 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % -----------------------------------------------------------------
 \LoadClass[UTF8,a4paper,cs4size,zihao=-4,linespread=1.5,space=auto,oneside]{ctexbook}
 % 正文中文为宋体，非中文为Times New Roman字体，小四，1.5倍行间距，首行缩进2字符。
-
 \RequirePackage{fontspec}
 %设置英文字体
 \setmainfont{Times New Roman}[
@@ -63,11 +61,6 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 ]
  % 设置字体
 
-% 设置中文字体 宋体
-% 设置数字、英文字体加粗
-%\setCJKmainfont{SimSun}
-%\setCJKsansfont{SimSun}
-%\setCJKmonofont{SimSun}
 % 每行缩进两个汉字
 \setlength\parindent{2em}
 % 页面设置装订线留1厘米，位置在左边。页边距上下分别为3厘米、2.5厘米，左右分别为2厘米、2.5厘米。本模板已按要求设置好页面。
@@ -87,9 +80,16 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 %% 设置章节前的页码格式
 \RequirePackage[pagestyles]{titlesec}
 \RequirePackage{fancyhdr}
-\newpagestyle{MyStyle}{
-  \sethead[][][]{}{}{}
+\newpagestyle{AbstractStyle}{
+  \fancyhf{} 
   \setfoot[][\Roman{page}][]{}{\Roman{page}}{}
+}
+% 设置附录的页面格式
+\newpagestyle{AppendixStyle}{
+    \fancyhf{}
+    \fancyfoot[C]{\songti\xiaowu 第 \thepage 页}
+    \fancyhead[L]{\songti\xiaowu 上海工程技术大学硕士学位论文}
+    \fancyhead[R]{\songti\xiaowu \quad\chaptertitle }
 }
 
 %重新设置plain
@@ -154,9 +154,12 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 }
 
 % -----------------------------------------------------------------
+% 设置首行缩进
+\RequirePackage{indentfirst}
 % 设置目录当中的格式
+
 % 目录中的章加点
-\usepackage[titles]{tocloft}
+\RequirePackage[titles]{tocloft}
 \renewcommand{\cftdot}{$\cdot$}
 \renewcommand{\cftdotsep}{1.5}
 \setlength{\cftbeforechapskip}{10pt}
@@ -277,9 +280,9 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % 设置颜色
 \RequirePackage{xcolor,color}
 % 用于设置
-\usepackage{pifont}       % \ding{xx}
-\usepackage{bbding}       % \Checkmark,\XSolid,... (需要和pifont宏包共同使用)
-\usepackage{fontawesome}  % \faCheck,\faTimes
+\RequirePackage{pifont}       % \ding{xx}
+\RequirePackage{bbding}       % \Checkmark,\XSolid,... (需要和pifont宏包共同使用)
+\RequirePackage{fontawesome}  % \faCheck,\faTimes
 % 采用如下宏定义更方便
 \newcommand{\cmark}{\ding{51}}
 \newcommand{\xmark}{\ding{55}}
@@ -435,6 +438,9 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \newcommand\myfootnotestyle[1]{\ifcase#1 \or \ding{192}\or \ding{193}\or
 \ding{194}\or \ding{195}\or \ding{196}\or \ding{197}%
 \or \ding{198}\or \ding{199}\or \ding{200}\or \ding{201}\else *\fi\relax}
+%--------------------------------------------------------
+% 定义附录  
+% \renewcommand\appendix{\appendixname}
 
 %---------------------------------------------------------
 % 文档开始导入默认配置

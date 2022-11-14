@@ -9,17 +9,19 @@
     \input{covers/original}
     % 授权说明书
     \input{covers/authorization}
-    
+    % 从这里开始生成目录部分页码
+    \frontmatter
+    \pagestyle{AbstractStyle}
     % 中文摘要和英文摘要
     \input{chapters/abstract}
-    \mainmatter
     %插入目录
-    \pagestyle{MyStyle}
     \tableofcontents
     \newpage
     % 符号及缩略词说明
     \thispagestyle{empty}
     \input{chapters/sym-def}
+    % 从这里开始生成文章部分页码
+    \mainmatter
     \pagestyle{plain}
     % 第一章
     \input{chapters/introduction}
@@ -31,7 +33,11 @@
     \input{chapters/docref}
     % 第五章
     \input{chapters/summary}
+    % 第六章
+    \input{chapters/ref-ext}
+    \backmatter
     \appendix
+    \pagestyle{AppendixStyle}
     % 参考文献
     \input{chapters/ref}
     % 附录
