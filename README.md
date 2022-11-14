@@ -39,7 +39,7 @@ git clone https://github.com/mobtgzhang/sues-thsis.git
 
 ## overleaf 使用方法
 点击下面链接访问即可
-+ [报告模板sues-report](https://www.overleaf.com/read/dgcffrccywsx)
++ [报告模板sues-report](https://www.overleaf.com/read/dgcffrccywsx)；
 + [论文模板sues-thesis](https://www.overleaf.com/read/wsxxrhvmfhjm)。 
 ## 支持作者
 本模板是本人按照学校提供的word模板修改而成，希望大家能在学习latex中进步，可以打赏支持一下作者！
