@@ -45,7 +45,7 @@ sudo mkdir -p /usr/share/fonts/winfonts # 共享文件夹下创建Windows字体�
 sudo cp <Windows/Fonts/*> /usr/share/fonts/winfonts/ # 将Windows字体复制到对应的文件夹下面，注意将标定的文件夹替换为Windows所在的目录
 sudo mkfontdir
 sudo mkfontscale
-sudo fc-cache -v
+sudo fc-cache -fv
 ```
 
 ## overleaf 使用方法
