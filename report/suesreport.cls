@@ -11,6 +11,13 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % 初始化latex代码
 \newif\if@suesreport@bwprint\@suesreport@bwprintfalse
 \newif\if@suesreport@preface\@suesreport@prefacetrue
+\DeclareOption{colorprint}{\@suesreport@bwprintfalse}
+\DeclareOption{bwprint}{\@suesreport@bwprinttrue}
+\DeclareOption{withoutpreface}{\@suesreport@prefacefalse}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexart}} 
+\ExecuteOptions{colorprint}
+\ProcessOptions\relax
+
 \LoadClass[UTF8,a4paper,cs4size,zihao=5,linespread=1.25,space=auto]{ctexart}
 % 正文内容要求：宋体，五号，1.25倍行间距，首行缩进2字符，5000字左右
 % -----------------------------------------------------------------
