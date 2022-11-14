@@ -59,8 +59,15 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
     ItalicFont = Times New Roman Italic,
     BoldItalicFont = Times New Roman Bold Italic
 ]
- % 设置字体
-% STSongti-SC-Regular
+% 设置字体
+
+
+% 设置字体
+\setmainfont{Times New Roman}
+\setmonofont{Courier New}
+\setsansfont{Arial}
+% MacOS 这里设置的是 STSongti-SC-Regular，注意修改
+\setCJKmainfont[AutoFakeBold = {2.15},ItalicFont={KaiTi}]{SimSun}
 % 每行缩进两个汉字
 \setlength\parindent{2em}
 % 页面设置装订线留1厘米，位置在左边。页边距上下分别为3厘米、2.5厘米，左右分别为2厘米、2.5厘米。本模板已按要求设置好页面。
@@ -82,7 +89,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \RequirePackage{fancyhdr}
 \newpagestyle{AbstractStyle}{
   \fancyhf{} 
-  \setfoot[][\Roman{page}][]{}{\Roman{page}}{}
+  \setfoot{}{\Roman{page}}{}
 }
 % 设置附录的页面格式
 \newpagestyle{AppendixStyle}{
@@ -187,11 +194,13 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
     hidelinks,
     citecolor=black
 }
+% 双排表格、图表标题
+\RequirePackage{bicaption}
+\captionsetup[table][bi-second]{name=Table} %设置表的英文编号前缀
+\captionsetup[figure][bi-second]{name=Figure} %设置图片的英文编号前缀
 % -----------------------------------------------
 % 设置交叉引用的包
 \RequirePackage{catchfilebetweentags}
-
-
 % ----------------------------------------------
 % 设置插入的数学公式
 \RequirePackage{mathtools,amsmath,amsfonts,amssymb,amsthm,bm,mathrsfs}
