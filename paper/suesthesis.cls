@@ -60,7 +60,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
     BoldItalicFont = Times New Roman Bold Italic
 ]
  % 设置字体
-
+% STSongti-SC-Regular
 % 每行缩进两个汉字
 \setlength\parindent{2em}
 % 页面设置装订线留1厘米，位置在左边。页边距上下分别为3厘米、2.5厘米，左右分别为2厘米、2.5厘米。本模板已按要求设置好页面。
