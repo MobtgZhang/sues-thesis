@@ -51,9 +51,9 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 
 % 设置中文字体 宋体
 % 设置数字、英文字体加粗
-\setCJKmainfont[AutoFakeBold = {2.15}]{SimSun}
-\setCJKsansfont{SimSun}
-\setCJKmonofont{SimSun}
+% 注意这里在MacOS上SimSun 会出现错误，需要改成STSongti-SC-Regular字体
+\setCJKmainfont[AutoFakeBold = {2.15},ItalicFont={KaiTi}]{SimSun}
+
 %\RequirePackage[T1]{fontenc}
 % 每行缩进两个汉字
 \setlength\parindent{2em}
