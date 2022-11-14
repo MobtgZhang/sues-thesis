@@ -88,15 +88,12 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \RequirePackage[pagestyles]{titlesec}
 \RequirePackage{fancyhdr}
 \newpagestyle{AbstractStyle}{
-  \fancyhf{} 
   \setfoot{}{\Roman{page}}{}
 }
 % 设置附录的页面格式
 \newpagestyle{AppendixStyle}{
-    \fancyhf{}
-    \fancyfoot[C]{\songti\xiaowu 第 \thepage 页}
-    \fancyhead[L]{\songti\xiaowu 上海工程技术大学硕士学位论文}
-    \fancyhead[R]{\songti\xiaowu \quad\chaptertitle }
+    \setfoot{}{\songti\xiaowu 第 \thepage 页}{}
+    \sethead{\songti\xiaowu 上海工程技术大学硕士学位论文}{}{\songti\xiaowu \quad\chaptertitle}
 }
 
 %重新设置plain
@@ -126,6 +123,23 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
     \vskip-2\headrulewidth\vskip-1.2pt}    %两条线的距离1pt
     \vspace{8mm}}     %双线与下面正文之间的垂直间距
 \makeatother
+
+% -----------------------------------------------------------------
+\RequirePackage{titletoc}
+% 设置目录格式
+% 章节的目录格式
+\titlecontents{chapter}[0pt]{\vspace{2mm}\bfseries\heiti\xiaosi}
+{\thecontentslabel\hskip.5em}{}{\titlerule*[0.5pc]{.}\contentspage}
+% 一级标题的目录格式
+\titlecontents{section}[30pt]{\bfseries\heiti\wuhao}
+{\thecontentslabel\hskip.5em}{}{\titlerule*[0.5pc]{.}\contentspage}
+% 二级标题的目录格式
+\titlecontents{subsection}[55pt]{\bfseries\heiti\wuhao}
+{\thecontentslabel\hskip.5em}{}{\titlerule*[0.5pc]{.}\contentspage}
+% 三级标题的目录格式
+\titlecontents{subsubsection}[55pt]{\bfseries\heiti\wuhao}
+{\thecontentslabel\hskip.5em}{}{\titlerule*[0.5pc]{.}\contentspage}
+
 % -----------------------------------------------------------------
 % 设置每一个章节目录字体大小
 % 每章标题前空一行，以三号黑体居中打印。
@@ -164,29 +178,6 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % 设置首行缩进
 \RequirePackage{indentfirst}
 % 设置目录当中的格式
-
-% 目录中的章加点
-\RequirePackage[titles]{tocloft}
-\renewcommand{\cftdot}{$\cdot$}
-\renewcommand{\cftdotsep}{1.5}
-\setlength{\cftbeforechapskip}{10pt}
-
-\renewcommand{\cftchapleader}{\cftdotfill{\cftchapdotsep}}
-\renewcommand{\cftchapdotsep}{\cftdotsep}
-\makeatletter
-\renewcommand{\numberline}[1]{%
-\settowidth\@tempdimb{#1\hspace{0.5em}}%
-\ifdim\@tempdima<\@tempdimb%
-  \@tempdima=\@tempdimb%
-\fi%
-\hb@xt@\@tempdima{\@cftbsnum #1\@cftasnum\hfil}\@cftasnumb}
-\makeatother
-
-% 设置目录字体尺寸
-\renewcommand{\cftchapfont}{\heiti\xiaosi}
-\renewcommand{\cftsecfont}{\heiti\wuhao}
-\renewcommand{\cftsubsecfont}{\heiti\wuhao}
-
 %-----------------------------------------
 % 设置引用格式
 \RequirePackage{url,hyperref}
