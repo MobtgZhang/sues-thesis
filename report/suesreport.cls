@@ -294,12 +294,12 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
             \fangsong\sihao\bfseries{
                 \begin{tabular}{p{3.28cm}<{\centering}p{5.86cm}<{\centering}}
                 
-                    学\qquad 院： & \suesreport@value@facultyname\\
-                    学\qquad 科： & \suesreport@value@subjectname\\
-                    学\qquad 号： & \suesreport@value@classnumber\\
-                    姓\qquad 名： & \suesreport@value@studentname\\
-                    导\qquad 师： & \suesreport@value@supervisor\\
-                    日\qquad 期： & \suesreport@value@datetime
+                    学\qquad 院： & \suesreport@value@facultyname\\\cline{2-2} 
+                    学\qquad 科： & \suesreport@value@subjectname\\\cline{2-2} 
+                    学\qquad 号： & \suesreport@value@classnumber\\\cline{2-2} 
+                    姓\qquad 名： & \suesreport@value@studentname\\\cline{2-2} 
+                    导\qquad 师： & \suesreport@value@supervisor\\\cline{2-2} 
+                    日\qquad 期： & \suesreport@value@datetime\\\cline{2-2} 
                 \end{tabular}
             }
             
