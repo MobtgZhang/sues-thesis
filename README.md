@@ -52,7 +52,7 @@ sudo fc-cache -fv
 点击下面链接访问即可
 + [报告模板sues-report](https://www.overleaf.com/read/dgcffrccywsx)；
 + [论文模板sues-thesis](https://www.overleaf.com/read/wsxxrhvmfhjm)；
-+ [答辩PPT](https://www.overleaf.com/read/wvnggtjdkjbc)。
++ [答辩sues-ppt](https://www.overleaf.com/read/wvnggtjdkjbc)。
 
 overleaf 需要将源码导入到自己的项目当中，上述链接是只读模式。
 
