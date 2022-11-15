@@ -12,7 +12,7 @@
 
 项目包含有三个文件夹，分别是开题报告（`report`）、答辩ppt（`ppt`、`beamer`）和论文模板（`paper`），其中ppt模板分为开题答辩、中期答辩、结题答辩ppt。
 
-### Linux/FreeBSD/MacOS用户使用用法
+### Linux/FreeBSD/MacOS用户使用方法
 推荐使用`Makefile`对latex模板进行编译，具体提供了以下几条可用的命令：
 ```bash
 make all                # 编译生成paper.pdf
