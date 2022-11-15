@@ -87,25 +87,37 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 %% 设置章节前的页码格式
 \RequirePackage[pagestyles]{titlesec}
 \RequirePackage{fancyhdr}
+% 设置摘要的样式
 \newpagestyle{AbstractStyle}{
     \fancyhf{}
   \setfoot{}{\Roman{page}}{}
 }
-%\AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{empty}}}
-
-%重新设置plain
-\fancypagestyle{AppendixStyle}{
+% 目录的第一页也设置为相同的样式
+\AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{AbstractStyle}}}
+% 设置默认的页眉页脚样式
+\fancypagestyle{plain}{
     \fancyhf{}
     \fancyfoot[C]{\songti\xiaowu 第 \thepage 页}
     \fancyhead[L]{\songti\xiaowu 上海工程技术大学硕士学位论文}
     \fancyhead[R]{\songti\xiaowu \quad\chaptertitle }
 }
+
+% 设置文档的页眉页脚样式
 \fancypagestyle{DocumentStyle}{
     \fancyhf{}
     \fancyfoot[C]{\songti\xiaowu 第 \thepage 页}
     \fancyhead[L]{\songti\xiaowu 上海工程技术大学硕士学位论文}
     \fancyhead[R]{\songti\xiaowu 第 \zhnum{chapter} 章 \quad\chaptertitle }
 }
+% 设置附录的页眉页脚样式
+\fancypagestyle{AppendixStyle}{
+    \fancyhf{}
+    \fancyfoot[C]{\songti\xiaowu 第 \thepage 页}
+    \fancyhead[L]{\songti\xiaowu 上海工程技术大学硕士学位论文}
+    \fancyhead[R]{\songti\xiaowu \quad\chaptertitle }
+}
+
+
 %设置双线页眉
 \makeatletter
 \def\headrule{
