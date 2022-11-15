@@ -205,9 +205,9 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \crefname{equation}{式}{式}
 \renewcommand{\eqref}[1]{\labelcref{#1}~\namecref{#1}}
 % 定公式、图、表编号为"3-1"的形式，即分隔符由.变为短杠
-\renewcommand\theequation{\arabic{section}-\arabic{equation}}
-\renewcommand\thefigure{\arabic{section}-\arabic{figure}}
-\renewcommand\thetable{\arabic{section}-\arabic{table}}
+\renewcommand\theequation{\arabic{chapter}-\arabic{equation}}
+\renewcommand\thefigure{\arabic{chapter}-\arabic{figure}}
+\renewcommand\thetable{\arabic{chapter}-\arabic{table}}
 
 %各个章节重新引用定义
 %\crefname{section}{se}{}
