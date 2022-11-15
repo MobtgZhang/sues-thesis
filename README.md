@@ -70,6 +70,7 @@ overleaf 需要将源码导入到自己的项目当中，上述链接是只读�
 		</td>
 	</tr>
 </table>
+
 ## latexstudio下载地址
 + [报告模板sues-report](https://www.latexstudio.net/index/details/index/ids/3058)
 + [论文模板sues-thesis]()
