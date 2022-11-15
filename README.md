@@ -59,7 +59,7 @@ overleaf 需要将源码导入到自己的项目当中，上述链接是只读�
 ## latexstudio下载地址
 + [报告模板sues-report](https://www.latexstudio.net/index/details/index/ids/3058)
 + [论文模板sues-thesis](https://www.latexstudio.net/index/details/index/ids/3061)
-+ [答辩PPT]()
+
 ## 支持作者
 本模板是本人按照学校提供的word模板修改而成，希望大家能在学习latex中进步，可以打赏支持一下作者！
 <table rules="none" align="center">
