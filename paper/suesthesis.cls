@@ -99,16 +99,9 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
     \fancyhf{}
     \fancyfoot[C]{\songti\xiaowu 第 \thepage 页}
     \fancyhead[L]{\songti\xiaowu 上海工程技术大学硕士学位论文}
-    \fancyhead[R]{\songti\xiaowu \quad\chaptertitle }
-}
-
-% 设置文档的页眉页脚样式
-\fancypagestyle{DocumentStyle}{
-    \fancyhf{}
-    \fancyfoot[C]{\songti\xiaowu 第 \thepage 页}
-    \fancyhead[L]{\songti\xiaowu 上海工程技术大学硕士学位论文}
     \fancyhead[R]{\songti\xiaowu 第 \zhnum{chapter} 章 \quad\chaptertitle }
 }
+
 % 设置附录的页眉页脚样式
 \fancypagestyle{AppendixStyle}{
     \fancyhf{}
