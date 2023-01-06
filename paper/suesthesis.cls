@@ -320,7 +320,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \makeatother
 %-----------------------------------------
 % 载入参考文献宏包，设置引用格式
-\RequirePackage{natbib}
+\RequirePackage[numbers,sort&compress]{natbib}
 \setcitestyle{square,super}
 %-----------------------------------------
 % 设置代码插入格式
