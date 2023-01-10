@@ -8,7 +8,14 @@
 
 如果在编译过程中遇到什么问题，可以在项目提交`issue`，`SUES-Thesis` 目前仅支持 `XeTeX`引擎，字符编码仅支持 UTF-8。
 ## 编译预览
-
+<table>
+  <tr>
+    <td><img="img/page1.png"></td>
+  </tr>
+  <tr>
+    <td><img="img/page2.png"></td>
+  </tr>
+</table>
 ## 使用方法
 
 项目包含有三个文件夹，分别是开题报告（`report`）、答辩ppt（`ppt`、`beamer`）和论文模板（`paper`），其中ppt模板分为开题答辩、中期答辩、结题答辩ppt。
