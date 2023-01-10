@@ -35,7 +35,7 @@ make wordcount          # 论文字数统计
 ### 下载模板
 普通用户可以直接`clone`或者下载`master.zip`.
 ```bash
-git clone https://github.com/mobtgzhang/sues-thsis.git
+git clone https://github.com/mobtgzhang/sues-thesis.git
 ```
 ### 可能出现的一些问题
 Linux和MacOS可能会出现字体问题，解决的方法可以修改`cls`中`setCJKmainfont`字体，将`SimSun`修改为`STSongti-SC-Regular`字体。
