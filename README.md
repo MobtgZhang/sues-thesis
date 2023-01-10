@@ -10,10 +10,8 @@
 ## 编译预览
 <table>
   <tr>
-    <td><img="img/page1.png"></td>
-  </tr>
-  <tr>
-    <td><img="img/page2.png"></td>
+    <td><img="imgs/page1.png"></td>
+    <td><img="imgs/page2.png"></td>
   </tr>
 </table>
 ## 使用方法
