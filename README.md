@@ -7,6 +7,7 @@
 其中答辩PPT模板我分为三个阶段的模板，分别表示开题答辩、中期答辩和最终答辩，细微调整了一些模板，以供大家参考和使用。
 
 如果在编译过程中遇到什么问题，可以在项目提交`issue`，`SUES-Thesis` 目前仅支持 `XeTeX`引擎，字符编码仅支持 UTF-8。
+## 编译预览
 
 ## 使用方法
 
@@ -59,25 +60,6 @@ overleaf 需要将源码导入到自己的项目当中，上述链接是只读�
 ## latexstudio下载地址
 + [报告模板sues-report](https://www.latexstudio.net/index/details/index/ids/3058)
 + [论文模板sues-thesis](https://www.latexstudio.net/index/details/index/ids/3061)
-
-## 支持作者
-本模板是本人按照学校提供的word模板修改而成，希望大家能在学习latex中进步，可以打赏支持一下作者！
-<table rules="none" align="center">
-	<tr>
-		<td>
-			<center>
-				<img src="imgs/alipay.jpg" width="52%" />
-			</center>
-		</td>
-		<td>
-			<center>
-				<img src="imgs/wechat.jpg" width="60%" />
-			</center>
-		</td>
-	</tr>
-</table>
-
-
 
 ## 参考
 
