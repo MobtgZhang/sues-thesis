@@ -318,7 +318,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 %-----------------------------------------
 % 生成指定长度的下划线，默认是4cm
 \makeatletter
-\newcommand\dlmu[2][4cm]{\hskip1pt\underline{\hb@xt@ #1{\hss#2\hss}}\hskip3pt}
+\newcommand\dlmu[2][4cm]{\hskip1pt\underline{\hb@xt@ #1{#2\hss}}\hskip3pt}
 \makeatother
 %-----------------------------------------
 % 载入参考文献宏包，设置引用格式
