@@ -195,9 +195,9 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \captionsetup[table][bi-second]{name=Table} %设置表的英文编号前缀
 \captionsetup[figure][bi-second]{name=Figure} %设置图片的英文编号前缀
 % 这里设置表格使得在排版中按照最上浮动的浮动格式
-\makeatletter
-\setlength{@fptop}{0pt}
-\makeatother
+%\makeatletter
+%\setlength{@fptop}{0pt}
+%\makeatother
 
 % -----------------------------------------------
 % 设置交叉引用的包
