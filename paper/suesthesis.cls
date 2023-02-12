@@ -61,11 +61,6 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 ]
 % 设置字体
 
-
-% 设置字体
-\setmainfont{Times New Roman}
-\setmonofont{Courier New}
-\setsansfont{Arial}
 % MacOS 这里设置的是 STSongti-SC-Regular，注意修改
 \setCJKmainfont[AutoFakeBold = {2.15},ItalicFont={KaiTi}]{SimSun}
 % 每行缩进两个汉字
