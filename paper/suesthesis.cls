@@ -38,7 +38,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \newcommand{\xiaowu}{\fontsize{9pt}{13.5pt}\selectfont}    
 \newcommand{\liuhao}{\fontsize{7.5pt}{11.25pt}\selectfont}
 % -----------------------------------------------------------------
-\LoadClass[UTF8,a4paper,cs4size,zihao=-4,linespread=1.5,space=auto,oneside]{ctexbook}
+\LoadClass[UTF8,a4paper,cs4size,zihao=-4,linespread=1.3,space=auto,oneside]{ctexbook}
 % 正文中文为宋体，非中文为Times New Roman字体，小四，1.5倍行间距，首行缩进2字符。
 \RequirePackage{fontspec}
 %设置英文字体
@@ -131,16 +131,16 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \RequirePackage{titletoc}
 % 设置目录格式
 % 章节的目录格式
-\titlecontents{chapter}[0pt]{\vspace{2mm}\bfseries\heiti\xiaosi}
+\titlecontents{chapter}[0pt]{\vspace{2mm}\heiti\xiaosi}
 {\thecontentslabel\hskip.5em}{}{\titlerule*[0.5pc]{.}\contentspage}
 % 一级标题的目录格式
-\titlecontents{section}[30pt]{\bfseries\heiti\wuhao}
+\titlecontents{section}[30pt]{\heiti\wuhao}
 {\thecontentslabel\hskip.5em}{}{\titlerule*[0.5pc]{.}\contentspage}
 % 二级标题的目录格式
-\titlecontents{subsection}[55pt]{\bfseries\heiti\wuhao}
+\titlecontents{subsection}[55pt]{\\heiti\wuhao}
 {\thecontentslabel\hskip.5em}{}{\titlerule*[0.5pc]{.}\contentspage}
 % 三级标题的目录格式
-\titlecontents{subsubsection}[55pt]{\bfseries\heiti\wuhao}
+\titlecontents{subsubsection}[55pt]{\heiti\wuhao}
 {\thecontentslabel\hskip.5em}{}{\titlerule*[0.5pc]{.}\contentspage}
 
 % -----------------------------------------------------------------
