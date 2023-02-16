@@ -159,18 +159,29 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
     bibname={参考文献},
     appendixname={附\quad 录},
     chapter={
-        beforeskip={16pt},
+        beforeskip={-0.5em},
+        afterskip={0.5em},
         nameformat={\heiti\sanhao\centering},
         titleformat={\heiti\sanhao\centering},
+        aftername=\hspace{0.5em}
     },
     section={
         format={\bf\heiti\xiaosi},
+        beforeskip={-0.5em},
+        afterskip={0.5em},
+        aftername=\hspace{1em}
     },
     subsection={
         format={\bf\heiti\xiaosi},
+        beforeskip={-0.5em},
+        afterskip={0.5em},
+        aftername=\hspace{1em}
     },
     subsubsection={
         format={\bf\heiti\xiaosi},
+        beforeskip={-0.5em},
+        afterskip={0.5em},
+        aftername=\hspace{1em}
     }
 }
 
