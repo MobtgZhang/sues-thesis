@@ -62,7 +62,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % 设置字体
 
 % MacOS 这里设置的是 STSongti-SC-Regular，注意修改
-\setCJKmainfont[AutoFakeBold = {2.15},ItalicFont={KaiTi}]{SimSun}
+%\setCJKmainfont[AutoFakeBold = {2.15},ItalicFont={KaiTi}]{SimSun}
 % 每行缩进两个汉字
 \setlength\parindent{2em}
 % 页面设置装订线留1厘米，位置在左边。页边距上下分别为3厘米、2.5厘米，左右分别为2厘米、2.5厘米。本模板已按要求设置好页面。
