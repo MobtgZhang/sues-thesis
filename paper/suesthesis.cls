@@ -60,9 +60,21 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
     BoldItalicFont = Times New Roman Bold Italic
 ]
 % 设置字体
-
 % MacOS 这里设置的是 STSongti-SC-Regular，注意修改
-%\setCJKmainfont[AutoFakeBold = {2.15},ItalicFont={KaiTi}]{SimSun}
+%\setCJKmainfont[
+%    AutoFakeBold,
+%    ItalicFont = {kaiti_GB2312.ttf}
+%]{SimSun.ttf}
+% 这里是添加一个中文家族字体，黑体，宋体
+%\setCJKfamilyfont{zhhei}{SimHei.ttf}
+%\setCJKfamilyfont{zhsong}{SimSun.ttf}
+%\setCJKfamilyfont{zhkai}{kaiti_GB2312.ttf}
+% 字体命令，可用于文档中自由设置字体
+%\renewcommand*{\heiti}{\CJKfamily{zhhei}}
+%\renewcommand*{\songti}{\CJKfamily{zhsong}}
+%\renewcommand*{\kaishu}{\CJKfamily{zhkai}}
+
+
 % 每行缩进两个汉字
 \setlength\parindent{2em}
 % 页面设置装订线留1厘米，位置在左边。页边距上下分别为3厘米、2.5厘米，左右分别为2厘米、2.5厘米。本模板已按要求设置好页面。
