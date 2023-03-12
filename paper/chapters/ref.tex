@@ -1,5 +1,15 @@
 
 %设置参考文献风格，参照使用 https://github.com/Haixing-Hu/GBT7714-2005-BibTeX-Style
+
+% 设置附录的页眉页脚样式
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyfoot[C]{\songti\xiaowu 第 \thepage 页}
+    \fancyhead[L]{\songti\xiaowu 上海工程技术大学硕士学位论文}
+    \fancyhead[R]{\songti\xiaowu \quad 参考文献 }
+}
+\thispagestyle{plain}
+% 设置参考文献
 \bibliographystyle{gbt7714-2005}
 \addcontentsline{toc}{chapter}{参考文献}
 \nocite{*}

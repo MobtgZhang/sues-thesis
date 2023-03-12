@@ -60,19 +60,19 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
     BoldItalicFont = Times New Roman Bold Italic
 ]
 % 设置字体
-% MacOS 这里设置的是 STSongti-SC-Regular，注意修改
-%\setCJKmainfont[
-%    AutoFakeBold,
-%    ItalicFont = {kaiti_GB2312.ttf}
-%]{SimSun.ttf}
-% 这里是添加一个中文家族字体，黑体，宋体
-%\setCJKfamilyfont{zhhei}{SimHei.ttf}
+% 宋体
 %\setCJKfamilyfont{zhsong}{SimSun.ttf}
-%\setCJKfamilyfont{zhkai}{kaiti_GB2312.ttf}
-% 字体命令，可用于文档中自由设置字体
-%\renewcommand*{\heiti}{\CJKfamily{zhhei}}
 %\renewcommand*{\songti}{\CJKfamily{zhsong}}
-%\renewcommand*{\kaishu}{\CJKfamily{zhkai}}
+% 黑体
+%\setCJKfamilyfont{zhhei}{SimHei.ttf}
+%\renewcommand*{\heiti}{\CJKfamily{zhhei}}
+% 楷体
+%\setCJKfamilyfont{zhkai}{kaiti_GB2312.ttf}
+%\newcommand*{\kaiti}{\CJKfamily{zhkai}}
+% 设置文章中主字体
+%\setCJKmainfont[AutoFakeBold]{SimSun.ttf}
+% MacOS 这里设置的是 STSongti-SC-Regular，注意修改
+
 
 
 % 每行缩进两个汉字
@@ -109,15 +109,6 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
     \fancyhead[R]{\songti\xiaowu 第 \zhnum{chapter} 章 \quad\chaptertitle }
 }
 
-% 设置附录的页眉页脚样式
-\fancypagestyle{AppendixStyle}{
-    \fancyhf{}
-    \fancyfoot[C]{\songti\xiaowu 第 \thepage 页}
-    \fancyhead[L]{\songti\xiaowu 上海工程技术大学硕士学位论文}
-    \fancyhead[R]{\songti\xiaowu \quad\chaptertitle }
-}
-
-
 %设置双线页眉
 \makeatletter
 \def\headrule{
@@ -149,7 +140,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \titlecontents{section}[30pt]{\heiti\wuhao}
 {\thecontentslabel\hskip.5em}{}{\titlerule*[0.5pc]{.}\contentspage}
 % 二级标题的目录格式
-\titlecontents{subsection}[55pt]{\\heiti\wuhao}
+\titlecontents{subsection}[55pt]{\heiti\wuhao}
 {\thecontentslabel\hskip.5em}{}{\titlerule*[0.5pc]{.}\contentspage}
 % 三级标题的目录格式
 \titlecontents{subsubsection}[55pt]{\heiti\wuhao}
@@ -171,29 +162,18 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
     bibname={参考文献},
     appendixname={附\quad 录},
     chapter={
-        beforeskip={-0.5em},
-        afterskip={0.5em},
+        beforeskip={16pt},
         nameformat={\heiti\sanhao\centering},
         titleformat={\heiti\sanhao\centering},
-        aftername=\hspace{0.5em}
     },
     section={
-        format={\bf\heiti\xiaosi},
-        beforeskip={-0.5em},
-        afterskip={0.5em},
-        aftername=\hspace{1em}
+        format={\bfseries\heiti\xiaosi},
     },
     subsection={
-        format={\bf\heiti\xiaosi},
-        beforeskip={-0.5em},
-        afterskip={0.5em},
-        aftername=\hspace{1em}
+        format={\bfseries\heiti\xiaosi},
     },
     subsubsection={
-        format={\bf\heiti\xiaosi},
-        beforeskip={-0.5em},
-        afterskip={0.5em},
-        aftername=\hspace{1em}
+        format={\bfseries\heiti\xiaosi},
     }
 }
 
@@ -394,10 +374,8 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 	\lstset{
 		language=C++,
         backgroundcolor=\color{lightgray},
-		keywordstyle=\color{blue}\bfseries,
+		keywordstyle=\color{blue},
 		morekeywords={*,define,*,include...},% 将特定单词加入Kewords中
-		keywordstyle=[2]\color{pBuiltins},% 设置Builtins样式
-		morekeywords=[2]{print},% 将特定单词加入Builtins中
 		stringstyle=\color{purple},% 设置字符串样式
 		commentstyle=\songti\color{pComment},% 设置注释样式	
         basicstyle=\footnotesize\fontspec{Consolas}, % 设置代码字体
@@ -413,10 +391,8 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 	\lstset{
 		language=C,
         backgroundcolor=\color{lightgray},
-		keywordstyle=\color{blue}\bfseries,
+		keywordstyle=\color{blue},
 		morekeywords={*,define,*,include...},% 将特定单词加入Kewords中
-		keywordstyle=[2]\color{pBuiltins},% 设置Builtins样式
-		morekeywords=[2]{print},% 将特定单词加入Builtins中
 		stringstyle=\color{purple},% 设置字符串样式
 		commentstyle=\songti\color{pComment},% 设置注释样式	
         basicstyle=\footnotesize\fontspec{Consolas}, % 设置代码字体
@@ -432,8 +408,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 	\lstset{
 		language=Java,
         backgroundcolor=\color{lightgray},
-		keywordstyle=\color{blue}\bfseries,
-		keywordstyle=[2]\color{pBuiltins},% 设置Builtins样式
+		keywordstyle=\color{blue},
 		stringstyle=\color{purple},% 设置字符串样式
 		commentstyle=\songti\color{pComment},% 设置注释样式	
         basicstyle=\footnotesize\fontspec{Consolas}, % 设置代码字体
