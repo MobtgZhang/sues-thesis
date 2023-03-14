@@ -2,27 +2,12 @@
 \NeedsTeXFormat{LaTeX2e}[2005/12/01]
 \ProvidesClass{suesthesis}[2022/11/11 v3.0 update  https://github.com/mobtgzhang/sues-thsis]
 %使用xelex进行编译
-%% Inital Code 
-\newif\if@suesthesis@bwprint\@suesthesis@bwprintfalse
-\newif\if@suesthesis@preface\@suesthesis@prefacetrue
-%% Declaration of Options 
-\DeclareOption{colorprint}{\@suesthesis@bwprintfalse}
-\DeclareOption{bwprint}{\@suesthesis@bwprinttrue}
-\DeclareOption{withoutpreface}{\@suesthesis@prefacefalse}
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
-%% Executing of Options
-\ExecuteOptions{colorprint}
-\ProcessOptions\relax
-
 \RequirePackage{ifxetex}
 \RequireXeTeX
 \ifxetex\else
 \ClassError{suesthesis}{You must use the `xelatex' driver\MessageBreak Please choose `xelatex'}{%
 Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \fi
-% 初始化latex代码
-\newif\if@suesthesis@bwprint\@suesthesis@bwprintfalse
-\newif\if@suesthesis@preface\@suesthesis@prefacetrue
 % 定义字号大小
 %设置字号
 
