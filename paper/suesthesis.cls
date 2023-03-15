@@ -203,6 +203,10 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 %\crefname{section}{se}{}
 % -----------------------------------------------------------------
 % 数学环境, 定理等设置
+\crefname{chapter}{章}{章}
+\crefname{section}{节}{节}
+\crefname{subsection}{小节}{小节}
+
 \newtheorem{definition}{定义}
 \crefname{definition}{定义}{定义}
 
@@ -212,9 +216,6 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \newtheorem{lemma}{引理}
 \crefname{lemma}{引理}{引理}
 
-\let\proof\relax
-\let\endproof\relax
-\newtheorem{proof}{证明}
 \crefname{proof}{证明}{证明}
 
 \newtheorem{corollary}{推论}
