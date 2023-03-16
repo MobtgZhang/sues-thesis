@@ -69,4 +69,7 @@ overleaf 需要将源码导入到自己的项目当中，上述链接是只读�
 ## 参考
 
 + [GBT7714-2005标准下的BibTeX样式](https://github.com/Haixing-Hu/GBT7714-2005-BibTeX-Style)
++ [GBT7714-2015标准下的BibTex样式](https://github.com/zepinglee/gbt7714-bibtex-style)
 + [上海交通大学latex模板](https://github.com/sjtug/SJTUThesis)
++ 清华大学学位论文latex模板
+
