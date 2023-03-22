@@ -23,7 +23,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \newcommand{\xiaowu}{\fontsize{9pt}{13.5pt}\selectfont}    
 \newcommand{\liuhao}{\fontsize{7.5pt}{11.25pt}\selectfont}
 % -----------------------------------------------------------------
-\LoadClass[UTF8,a4paper,cs4size,zihao=-4,linespread=1.3,space=auto,oneside]{ctexbook}
+\LoadClass[UTF8,a4paper,cs4size,zihao=-4,linespread=1.625,space=auto,oneside]{ctexbook}
 % 正文中文为宋体，非中文为Times New Roman字体，小四，1.5倍行间距，首行缩进2字符。
 \RequirePackage{fontspec}
 %设置英文字体
