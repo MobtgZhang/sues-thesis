@@ -1,0 +1,51 @@
+\documentclass{suesppt}
+\begin{document}
+    \title[上海工程技术大学硕士学位论文答辩]{答辩PPT}
+    \author[汇报人:XXX]{汇报人:XXX}
+    \institute[SUES]{上海工程技术大学}
+    \logo{\includegraphics[height=0.5cm,width=3.0cm]{logo-sues-title}\vspace{230pt}}
+    \date{\today}
+    \begin{frame}
+        \titlepage
+    \end{frame}
+    \setbeamertemplate{section in toc}[square]
+    \begin{frame}
+        \frametitle{目录}
+        \tableofcontents
+    \end{frame}
+
+    \section{这是第一小结}
+    \begin{frame}
+      \frametitle{第\thesection 节:这是第一小结}
+      \tableofcontents[currentsection]
+    \end{frame}
+
+    \begin{frame}
+    \frametitle{这是第一小结}
+    
+    \hspace{2em}这是第一小结,继续阐述内容
+    \begin{eqnarray}
+        < subject,relation,object,time>\nonumber
+    \end{eqnarray}
+    \end{frame}
+
+
+    \begin{frame}
+        \frametitle{这是第一小结另外的内容}
+        \hspace{2em}这是第一小结另外的内容
+        \begin{eqnarray}
+            f_{\tau}\left(x\right)&=&-\left|a+b-c+d-e+f+g-h-j\right|_{L_{1/2}}
+        \end{eqnarray}
+    \end{frame}
+
+    \section*{thx}
+        \begin{frame}
+            \begin{center}
+                \fontsize{60pt}{\baselineskip}\selectfont \structure{Thanks!}
+            \end{center}
+            \bibliographystyle{gbt7714-2005-author-year}
+            \nocite{*} 
+            \bibliography{refers}
+        \end{frame}
+\end{document}
+
