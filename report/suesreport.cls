@@ -72,6 +72,10 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 %-----------------------------------------
 % 设置链接引用格式
 \RequirePackage{url,hyperref}
+\hypersetup{
+    hidelinks,
+    citecolor=black
+}
 % URL换行
 \def\UrlBreaks{\do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J
 \do\K\do\L\do\M\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V
