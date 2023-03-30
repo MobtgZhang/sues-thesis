@@ -41,16 +41,42 @@ if %flag%x == wordcountx (
 	goto :EOF
 )
 
+if %flag% == help (
+	call :help
+	goto :EOF
+)
+
+if %flag% == c (
+	call :clean
+	goto :EOF
+)
+
+if %flag% == ca (
+	call :cleanall
+	goto :EOF
+)
+
+if %flag% == wc (
+	call :wordcount
+	goto :EOF
+)
+
+
+if %flag% == h (
+	call :help
+	goto :EOF
+)
+
 :help
 	echo %ESC%[33mThis is the compile batch script for SJTUThesis.
 	echo Usage:
 	echo     compile.bat [option]
 	echo options:
 	echo   thesis    Compile the thesis (default)
-	echo   clean     Clean all work files
-	echo   cleanall  Clean all work files and main.pdf
-	echo   wordcount Count words in main.pdf
-	echo   help      Print this help message%ESC%[0m
+	echo   c or clean     Clean all work files
+	echo   ca or cleanall  Clean all work files and %ESC%[31m main.pdf %ESC%[33m
+	echo   wc or wordcount Count words in main.pdf
+	echo   h or  help      Print this help message%ESC%[0m
 goto :EOF
 
 :thesis
