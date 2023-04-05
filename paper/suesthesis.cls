@@ -177,8 +177,9 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \RequirePackage[justification=centering]{bicaption}
 \RequirePackage[justification=centering]{caption}
 \renewcommand{\captionfont}{\zihao{5}\kaishu}
-\captionsetup[table][bi-second]{name=Table} %设置表的英文编号前缀
-\captionsetup[figure][bi-second]{name=Figure} %设置图片的英文编号前缀
+\captionsetup[longtable][bi-second]{name=Table,label=space}
+\captionsetup[table][bi-second]{name=Table,label=space} %设置表的英文编号前缀
+\captionsetup[figure][bi-second]{name=Figure,label=space} %设置图片的英文编号前缀
 \DeclareBiCaptionSeparator{tmpbicaptionskip}{\vspace{3pt}}
 \captionsetup{bi-separator=tmpbicaptionskip}
 % 这里设置表格使得在排版中按照最上浮动的浮动格式
