@@ -6,7 +6,7 @@
 
 其中答辩PPT模板我分为三个阶段的模板，分别表示开题答辩、中期答辩和最终答辩，细微调整了一些模板，以供大家参考和使用。
 
-如果在编译过程中遇到什么问题，可以在项目提交`issue`，`SUES-Thesis` 目前仅支持 `XeTeX`引擎，字符编码仅支持 UTF-8。
+如果在编译过程中遇到什么问题，可以在项目提交`issue`，`sues-thesis` 目前仅支持 `XeTeX`引擎，字符编码仅支持 UTF-8。
 ## 编译预览
 <table>
   <tr>
@@ -48,7 +48,7 @@ Linux和MacOS可能会出现字体问题，解决的方法可以修改`cls`中`s
 Linux由于缺少Windows字体，可以使用下面的方法添加Windows字体到Linux系统当中。
 ```bash
 sudo mkdir -p /usr/share/fonts/winfonts # 共享文件夹下创建Windows字体库
-sudo cp <Windows/Fonts/*> /usr/share/fonts/winfonts/ # 将Windows字体复制到对应的文件夹下面，注意将标定的文件夹替换为Windows所在的目录
+sudo cp Windows/Fonts/* /usr/share/fonts/winfonts/ # 将Windows字体复制到对应的文件夹下面，注意将标定的文件夹替换为Windows所在的目录
 sudo mkfontdir
 sudo mkfontscale
 sudo fc-cache -fv
