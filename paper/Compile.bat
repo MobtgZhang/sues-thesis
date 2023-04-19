@@ -42,7 +42,7 @@ if %flag%x == wordcountx (
 )
 
 :help
-	echo %ESC%[33mThis is the compile batch script for SJTUThesis.
+	echo %ESC%[33mThis is the compile batch script for SUESThesis.
 	echo Usage:
 	echo     compile.bat [option]
 	echo options:
