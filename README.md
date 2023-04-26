@@ -65,6 +65,9 @@ overleaf 需要将源码导入到自己的项目当中，上述链接是只读�
 ## latexstudio下载地址
 + [报告模板sues-report](https://www.latexstudio.net/index/details/index/ids/3058)
 + [论文模板sues-thesis](https://www.latexstudio.net/index/details/index/ids/3061)
+## 免责声明
+
+此模板为个人实现，未得到学校任何相关人员的认证，使用者应当自行承担一切后果。
 
 ## 参考
 
