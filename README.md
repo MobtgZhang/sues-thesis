@@ -8,6 +8,7 @@
 
 如果在编译过程中遇到什么问题，可以在项目提交`issue`，`sues-thesis` 目前仅支持 `XeTeX`引擎，字符编码仅支持 UTF-8。
 ## 编译预览
+
 <table>
   <tr>
     <td><img src="imgs/page1.png"></td>
