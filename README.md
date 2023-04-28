@@ -14,6 +14,7 @@
     <td><img src="imgs/page2.png"></td>
   </tr>
 </table>
+
 ## 使用方法
 
 项目包含有三个文件夹，分别是开题报告（`report`）、答辩ppt（`ppt`、`beamer`）和论文模板（`paper`），其中ppt模板分为开题答辩、中期答辩、结题答辩ppt。
