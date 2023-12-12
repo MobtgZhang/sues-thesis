@@ -1,6 +1,6 @@
 %依赖的Latex版本
 \NeedsTeXFormat{LaTeX2e}[2005/12/01]
-\ProvidesClass{suesthesis}[2022/11/11 v3.0 update  https://github.com/mobtgzhang/sues-thsis]
+\ProvidesClass{suesthesis}[2022/11/11 v3.6.1 update  https://github.com/mobtgzhang/sues-thsis]
 %使用xelex进行编译
 \RequirePackage{ifxetex}
 \RequireXeTeX
