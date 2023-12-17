@@ -299,7 +299,8 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \RequirePackage{tikz-3dplot}
 % pgfplots画图处理
 \RequirePackage{pgfplots}
-\usetikzlibrary{positioning, fit, arrows.meta, shapes,quotes}
+\usetikzlibrary{positioning, fit, arrows.meta,quotes,3d}
+\usetikzlibrary{bending,chains,decorations.markings}
 \usetikzlibrary{shapes,snakes}
 \usetikzlibrary{bayesnet}
 \pgfplotsset{compat=1.18}
