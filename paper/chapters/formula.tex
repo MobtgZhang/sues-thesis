@@ -332,6 +332,562 @@
     \label{fig:complex_fig}
 \end{figure}
 
+\subsection{几个较为不错的画图例子}
+
+使用pgfplots构建图，如\cref{fig:figure_ext1}所示。
+这里给出了三个例子，分别是空间向量分布图，三维函数图像空间分布图，三角权重图。
+
+\begin{figure}[htbp]
+    \centering
+    \subfloat[空间向量分布图]{
+        \begin{tikzpicture}
+            \begin{axis}[
+                domain=0:1,
+                xmax=1,
+                ymax=1,
+            ]
+            \addplot3[surf] {x*y};
+            \addplot3[blue,/pgfplots/quiver,
+                quiver/u=y,
+                quiver/v=x,
+                quiver/w=0,
+                quiver/scale arrows=0.1,
+                -stealth,samples=10] {1};
+            \end{axis}
+        \end{tikzpicture}
+    }
+    \subfloat[三维函数图像空间分布图]{
+        \begin{tikzpicture}
+            \begin{axis}
+            \addplot3+[mesh,scatter,samples=10,domain=0:1] 
+                {x*(1-x)*y*(1-y)};
+            \end{axis}
+        \end{tikzpicture}
+    }
+    \quad
+    \subfloat[三角权重图]{
+        \begin{tikzpicture}
+            \begin{ternaryaxis}[
+                title=Want--be--Stainless Steel,
+                xlabel=Weight Percent Chromium,
+                ylabel=Weight Percent Iron,
+                zlabel=Weight Percent Nickel,
+                label style=sloped,
+                area style,
+            ]
+                \addplot3 table[row sep=crcr] {
+                A B C \\
+                1 0 0 \\
+                0.5 0.4 0.1 \\
+                0.45 0.52 0.03 \\
+                0.36 0.6 0.04 \\
+                0.1 0.9 0 \\
+                };
+                \addlegendentry{Cr}
+            
+                \addplot3 table[row sep=crcr] {
+                A B C \\
+                1 0 0 \\
+                0.5 0.4 0.1 \\
+                0.28 0.35 0.37 \\
+                0.4 0 0.6 \\
+                };
+                \addlegendentry{Cr+$\gamma$FeNi}
+            
+                \addplot3 table[row sep=crcr] {
+                0.4 0 0.6 \\
+                0.28 0.35 0.37 \\
+                0.25 0.6 0.15 \\
+                0.1 0.9 0 \\
+                0 1 0 \\
+                0 0 1 \\
+                };
+                \addlegendentry{$\gamma$FeNi}
+            
+                \addplot3 table[row sep=crcr] {
+                0.1 0.9 0 \\
+                0.36 0.6 0.04 \\
+                0.25 0.6 0.15 \\
+                };
+                \addlegendentry{Cr+$\gamma$FeNi}
+            
+                \addplot3 table[row sep=crcr] {
+                0.5 0.4 0.1 \\
+                0.45 0.52 0.03 \\
+                0.36 0.6 0.04 \\
+                0.25 0.6 0.15 \\
+                0.28 0.35 0.37 \\
+                };
+                \addlegendentry{$\sigma$+$\gamma$FeNi}
+            
+                \node[inner sep=0.5pt,circle,draw,fill=white,pin=-15:\footnotesize Stainless Steel] 
+                  at (axis cs:0.18,0.74,0.08) {};
+                
+            \end{ternaryaxis}
+        \end{tikzpicture}
+    }
+    \bicaption{几个较为不错的画图例子}{Several good examples of drawing}
+    \label{fig:figure_ext1}
+\end{figure}
+
+\newpage
+pgfplots 具有强大的功能，可以画出各种各样的图，可以画出较为不错的神经网结构图。
+举个例子
+
+\begin{figure}[hbpt]
+    \centering
+    % Command \empt{var1}{var2}
+    \newcommand{\empt}[2]{$#1^{\langle #2 \rangle}$}
+    \begin{tikzpicture}[
+        % GLOBAL CFG
+        font=\sf \scriptsize,
+        >=LaTeX,
+        % Styles
+        cell/.style={% For the main box
+            rectangle, 
+            rounded corners=5mm, 
+            draw,
+            very thick,
+            },
+        operator/.style={%For operators like +  and  x
+            circle,
+            draw,
+            inner sep=-0.5pt,
+            minimum height =.2cm,
+            },
+        function/.style={%For functions
+            ellipse,
+            draw,
+            inner sep=1pt
+            },
+        ct/.style={% For external inputs and outputs
+            circle,
+            draw,
+            line width = .75pt,
+            minimum width=1cm,
+            inner sep=1pt,
+            },
+        gt/.style={% For internal inputs
+            rectangle,
+            draw,
+            minimum width=4mm,
+            minimum height=3mm,
+            inner sep=1pt
+            },
+        mylabel/.style={% something new that I have learned
+            font=\scriptsize\sffamily
+            },
+        ArrowC1/.style={% Arrows with rounded corners
+            rounded corners=.25cm,
+            thick,
+            },
+        ArrowC2/.style={% Arrows with big rounded corners
+            rounded corners=.5cm,
+            thick,
+            },
+        ]
+    
+        %Start drawing the thing...    
+        % Draw the cell: 
+        \node [cell, minimum height =4cm, minimum width=6cm] at (0,0){} ;
+    
+        % Draw inputs named ibox#
+        \node [gt] (ibox1) at (-2,-0.75) {$\sigma$};
+        \node [gt] (ibox2) at (-1.5,-0.75) {$\sigma$};
+        \node [gt, minimum width=1cm] (ibox3) at (-0.5,-0.75) {Tanh};
+        \node [gt] (ibox4) at (0.5,-0.75) {$\sigma$};
+    
+       % Draw opérators   named mux# , add# and func#
+        \node [operator] (mux1) at (-2,1.5) {$\times$};
+        \node [operator] (add1) at (-0.5,1.5) {+};
+        \node [operator] (mux2) at (-0.5,0) {$\times$};
+        \node [operator] (mux3) at (1.5,0) {$\times$};
+        \node [function] (func1) at (1.5,0.75) {Tanh};
+    
+        % Draw External inputs? named as basis c,h,x
+        \node[ct, label={[mylabel]Cell}] (c) at (-4,1.5) {\empt{c}{t-1}};
+        \node[ct, label={[mylabel]Hidden}] (h) at (-4,-1.5) {\empt{h}{t-1}};
+        \node[ct, label={[mylabel]left:Input}] (x) at (-2.5,-3) {\empt{x}{t}};
+    
+        % Draw External outputs? named as basis c2,h2,x2
+        \node[ct, label={[mylabel]Label1}] (c2) at (4,1.5) {\empt{c}{t}};
+        \node[ct, label={[mylabel]Label2}] (h2) at (4,-1.5) {\empt{h}{t}};
+        \node[ct, label={[mylabel]left:Label3}] (x2) at (2.5,3) {\empt{h}{t}};
+    
+    % Start connecting all.
+        %Intersections and displacements are used. 
+        % Drawing arrows    
+        \draw [ArrowC1] (c) -- (mux1) -- (add1) -- (c2);
+    
+        % Inputs
+        \draw [ArrowC2] (h) -| (ibox4);
+        \draw [ArrowC1] (h -| ibox1)++(-0.5,0) -| (ibox1); 
+        \draw [ArrowC1] (h -| ibox2)++(-0.5,0) -| (ibox2);
+        \draw [ArrowC1] (h -| ibox3)++(-0.5,0) -| (ibox3);
+        \draw [ArrowC1] (x) -- (x |- h)-| (ibox3);
+    
+        % Internal
+        \draw [->, ArrowC2] (ibox1) -- (mux1);
+        \draw [->, ArrowC2] (ibox2) |- (mux2);
+        \draw [->, ArrowC2] (ibox3) -- (mux2);
+        \draw [->, ArrowC2] (ibox4) |- (mux3);
+        \draw [->, ArrowC2] (mux2) -- (add1);
+        \draw [->, ArrowC1] (add1 -| func1)++(-0.5,0) -| (func1);
+        \draw [->, ArrowC2] (func1) -- (mux3);
+    
+        %Outputs
+        \draw [-, ArrowC2] (mux3) |- (h2);
+        \draw (c2 -| x2) ++(0,-0.1) coordinate (i1);
+        \draw [-, ArrowC2] (h2 -| x2)++(-0.5,0) -| (i1);
+        \draw [-, ArrowC2] (i1)++(0,0.2) -- (x2);
+    
+    \end{tikzpicture}
+    \bicaption{LSTM 网络结构图}{LSTM network structure diagram}
+\end{figure}
 
 
+\begin{figure}[hbpt]
+    \centering
+    \definecolor{Cerulean}{RGB}{0,123,167}
+    \definecolor{JungleGreen}{RGB}{0,169,154}
+    \definecolor{LimeGreen}{RGB}{50, 205, 50}
+    \definecolor{WildStrawberry}{RGB}{255,67,164}
+    \definecolor{RedOrange}{RGB}{255, 68, 51}
+    \definecolor{RubineRed}{RGB}{209, 0, 86}
+    \begin{tikzpicture}
+    
+        % MF 
+        \draw (-1,1.2) node {\textbf{MF}};
+        \draw [very thick] (0,0+0.6) rectangle (3.6/2,0.6+2.4/2);
+        \filldraw [fill=Cerulean!40!white,draw=green!40!black] (0,0+0.6) rectangle (3.6/2,0.6+2.4/2);
+        \filldraw [fill=yellow!30] (0.4/2,0.6+0.4/2) rectangle (0.8/2,0.6+0.8/2);
+        \filldraw [fill=yellow!20] (2.4/2,0.6+0.4/2) rectangle (2.8/2,0.6+0.8/2);
+        \filldraw [fill=yellow!40] (0.8/2,0.6+1.2/2) rectangle (1.2/2,0.6+1.6/2);
+        \filldraw [fill=yellow!30] (2.0/2,0.6+1.6/2) rectangle (2.4/2,0.6+2.0/2);
+        \filldraw [fill=yellow!50] (0.4/2,0.6+2.0/2) rectangle (0.8/2,0.6+2.4/2);
+        \filldraw [fill=yellow!10] (2.4/2,0.6+2.0/2) rectangle (2.8/2,0.6+2.4/2);
+        \filldraw [fill=yellow!20] (2.8/2,0.6+1.2/2) rectangle (3.2/2,0.6+2.0/2);
+        \draw [step=0.4/2, very thin, color=gray] (0,0.6) grid (3.6/2,0.6+2.4/2);
+        \draw (1.8/2,-0.3+0.6) node {{\color{black}\scriptsize{$X\in\mathbb{R}^{N\times T}$}}};
+        
+        % U
+        \draw (4.4/2,1.2/2+0.6) node {{\color{black}\large{$\approx$}}};
+        \draw [very thick] (5.2/2,0+0.6) rectangle (6.0/2,2.4/2+0.6);
+        \filldraw [fill=JungleGreen!30!white,draw=green!40!black] (5.2/2,0+0.6) rectangle (6.0/2,2.4/2+0.6);
+        \draw [step=0.4/2, very thin, color=gray] (5.2/2,0+0.6) grid (6.0/2,2.4/2+0.6);
+        \draw (5.6/2,-0.3+0.6) node {{\color{black}\scriptsize{$U\in\mathbb{R}^{N\times R}$}}};
+        
+        % V
+        \draw (6.8/2,1.2/2+0.6) node {{\color{black}\large{$\times$}}};
+        \draw [very thick] (7.6/2,0.8/2+0.6) rectangle (11.2/2,1.6/2+0.6);
+        \filldraw [fill=blue!10!white,draw=blue!40!black] (7.6/2,0.8/2+0.6) rectangle (11.2/2,1.6/2+0.6);
+        \draw [step=0.4/2, very thin, color=gray] (7.6/2,0.8/2+0.6) grid (11.2/2,1.6/2+0.6);
+        \draw (9.4/2,0+0.6) node {{\color{black}\scriptsize{$V^{T}\in\mathbb{R}^{R\times T}$}}};
+        
+        % TVART MODEL
+        \draw (-1,-1.2) node {\textbf{TVART}};
+        
+        
+        % AR MODEL
+        \draw [very thick] (.8+0.4,-3.8+0.4) rectangle (2+0.4,-2.6+0.4);
+        \filldraw [fill=LimeGreen!50!white,draw=green!40!black] (.8+0.4,-3.8+0.4) rectangle (2+0.4,-2.6+0.4);
+        \draw [step=0.4/2, very thin, color=gray] (.8+0.4,-3.8+0.4) grid (2+0.4,-2.6+0.4);
+        
+        \draw [very thick] (.8+0.3,-3.8+0.3) rectangle (2+0.3,-2.6+0.3);
+        \filldraw [fill=LimeGreen!40!white,draw=green!40!black] (.8+0.3,-3.8+0.3) rectangle (2+0.3,-2.6+0.3);
+        \draw [step=0.4/2, very thin, color=gray] (.8+0.3,-3.8+0.3) grid (2+0.3,-2.6+0.3);
+        
+        \draw [very thick] (.8+0.2,-3.8+0.2) rectangle (2+0.2,-2.6+0.2);
+        \filldraw [fill=LimeGreen!30!white,draw=green!40!black] (.8+0.2,-3.8+0.2) rectangle (2+0.2,-2.6+0.2);
+        \draw [step=0.4/2, very thin, color=gray] (.8+0.2,-3.8+0.2) grid (2+0.2,-2.6+0.2);
+        
+        \draw [very thick] (.8+0.1,-3.8+0.1) rectangle (2+0.1,-2.6+0.1);
+        \filldraw [fill=LimeGreen!20!white,draw=green!40!black] (.8+0.1,-3.8+0.1) rectangle (2+0.1,-2.6+0.1);
+        \draw [step=0.4/2, very thin, color=gray] (.8+0.1,-3.8+0.1) grid (2+0.1,-2.6+0.1);
+        
+        \draw [very thick] (.8,-3.8) rectangle (2,-2.6);
+        \filldraw [fill=LimeGreen!10!white,draw=green!40!black] (.8,-3.8) rectangle (2,-2.6);
+        \draw [step=0.4/2, very thin, color=gray] (.8,-3.8) grid (2,-2.6);
+        
+          \draw (1.1,-4.6) node
+        {{\color{black}\scriptsize{$\mathcal{A}\in\mathbb{R}^{N \times N \times T-1}$}}};
+        % y vector
+    
+        \draw [very thick] (0+0.4-0.8-0.2,-3.8+0.4) rectangle (0.2+0.4-0.8-0.2,-2.6+0.4);
+        \filldraw [fill=Cerulean!60!white,draw=green!40!black] (0+0.4-0.8-0.2,-3.8+0.4) rectangle (0.2+0.4-0.8-0.2,-2.6+0.4);
+        \draw [step=0.4/2, very thin, color=gray] (0+0.4-0.8-0.2,-3.8+0.4) grid (0.2+0.4-0.8-0.2,-2.6+0.4);
+        
+        \draw [very thick] (0+0.3-0.8-0.2,-3.8+0.3) rectangle (0.2+0.3-0.8-0.2,-2.6+0.3);
+        \filldraw [fill=Cerulean!50!white,draw=green!40!black] (0+0.3-0.8-0.2,-3.8+0.3) rectangle (0.2+0.3-0.8-0.2,-2.6+0.3);
+        \draw [step=0.4/2, very thin, color=gray] (0+0.3-0.8-0.2,-3.8+0.3) grid (0.2+0.3-0.8-0.2,-2.6+0.3);
+    
+        \draw [very thick] (0+0.2-0.8-0.2,-3.8+0.2) rectangle (0.2+0.2-0.8-0.2,-2.6+0.2);
+        \filldraw [fill=Cerulean!40!white,draw=green!40!black] (0+0.2-0.8-0.2,-3.8+0.2) rectangle (0.2+0.2-0.8-0.2,-2.6+0.2);
+        \draw [step=0.4/2, very thin, color=gray] (0+0.2-0.8-0.2,-3.8+0.2) grid (0.2+0.2-0.8-0.2,-2.6+0.2);
+        
+        \draw [very thick] (0.1-0.8-0.2,-3.8+0.1) rectangle (0.2+0.1-0.8-0.2,-2.6+0.1);
+        \filldraw [fill=Cerulean!30!white,draw=green!40!black] (0+0.1-0.8-0.2,-3.8+0.1) rectangle (0.2+0.1-0.8-0.2,-2.6+0.1);
+        \draw [step=0.4/2, very thin, color=gray] (0+0.1-0.8-0.2,-3.8+0.1) grid (0.2+0.1-0.8-0.2,-2.6+0.1);
+        
+        \draw [very thick] (0-0.8-0.2,-3.8) rectangle (0.2-0.8-0.2,-2.6);
+        \filldraw [fill=Cerulean!20!white,draw=green!40!black] (0-0.8-0.2,-3.8) rectangle (0.2-0.8-0.2,-2.6);
+        \draw [step=0.4/2, very thin, color=gray] (0-0.8-0.2,-3.8) grid (0.2-0.8-0.2,-2.6);
+        \draw (0-0.8,-4.6) node {{\color{black}\scriptsize{$\boldsymbol{x}_{t+1}\in\mathbb{R}^{N}$}}};
+        
+        \draw (0.15,-3.2) node {{\color{black}\large{$=$}}};
+        % x vector
+        \draw [very thick] (0+0.4+2.6,-3.8+0.4) rectangle (0.2+0.4+2.6,-2.6+0.4);
+        \filldraw [fill=Cerulean!50!white,draw=green!40!black] (0+0.4+2.6,-3.8+0.4) rectangle (0.2+0.4+2.6,-2.6+0.4);
+        \draw [step=0.4/2, very thin, color=gray] (0+0.4+2.6,-3.8+0.4) grid (0.2+0.4+2.6,-2.6+0.4);
+        
+        \draw [very thick] (0+0.3+2.6,-3.8+0.3) rectangle (0.2+0.3+2.6,-2.6+0.3);
+        \filldraw [fill=Cerulean!40!white,draw=green!40!black] (0+0.3+2.6,-3.8+0.3) rectangle (0.2+0.3+2.6,-2.6+0.3);
+        \draw [step=0.4/2, very thin, color=gray] (0+0.3+2.6,-3.8+0.3) grid (0.2+0.3+2.6,-2.6+0.3);
+    
+        \draw [very thick] (0+0.2+2.6,-3.8+0.2) rectangle (0.2+0.2+2.6,-2.6+0.2);
+        \filldraw [fill=Cerulean!30!white,draw=green!40!black] (0+0.2+2.6,-3.8+0.2) rectangle (0.2+0.2+2.6,-2.6+0.2);
+        \draw [step=0.4/2, very thin, color=gray] (0+0.2+2.6,-3.8+0.2) grid (0.2+0.2+2.6,-2.6+0.2);
+        
+        \draw [very thick] (0.1+2.6,-3.8+0.1) rectangle (0.2+0.1+2.6,-2.6+0.1);
+        \filldraw [fill=Cerulean!20!white,draw=green!40!black] (0+0.1+2.6,-3.8+0.1) rectangle (0.2+0.1+2.6,-2.6+0.1);
+        \draw [step=0.4/2, very thin, color=gray] (0+0.1+2.6,-3.8+0.1) grid (0.2+0.1+2.6,-2.6+0.1);
+        
+        \draw [very thick] (0+2.6,-3.8) rectangle (0.2+2.6,-2.6);
+        \filldraw [fill=Cerulean!10!white,draw=green!40!black] (0+2.6,-3.8) rectangle (0.2+2.6,-2.6);
+        \draw [step=0.4/2, very thin, color=gray] (0+2.6,-3.8) grid (0.2+2.6,-2.6);
+        
+        \draw (2.9 ,-4.6) node {{\color{black}\scriptsize{$\boldsymbol{x}_{t}\in\mathbb{R}^{N}$}}};
+    
+        \draw[->] (0.6,-2.6) -- (1.1,-2.1);
+        \draw (0.3,-2.2) node {{\color{black}\scriptsize{temporal}}};
+    
+        \draw[->, line width=0.5mm] (3.8,-3.2) -- (4.5,-3.2);
+        
+        % tensor A
+        \draw [very thick] (5.8+0.4,-3.8+0.4) rectangle (7+0.4,-2.6+0.4);
+        \filldraw [fill=LimeGreen!50!white,draw=green!40!black] (5.8+0.4,-3.8+0.4) rectangle (7+0.4,-2.6+0.4);
+        \draw [step=0.4/2, very thin, color=gray] (5.8+0.4,-3.8+0.4) grid (7+0.4,-2.6+0.4);
+        
+        \draw [very thick] (5.8+0.3,-3.8+0.3) rectangle (7+0.3,-2.6+0.3);
+        \filldraw [fill=LimeGreen!40!white,draw=green!40!black] (5.8+0.3,-3.8+0.3) rectangle (7+0.3,-2.6+0.3);
+        \draw [step=0.4/2, very thin, color=gray] (5.8+0.3,-3.8+0.3) grid (7+0.3,-2.6+0.3);
+        
+        \draw [very thick] (5.8+0.2,-3.8+0.2) rectangle (7+0.2,-2.6+0.2);
+        \filldraw [fill=LimeGreen!30!white,draw=green!40!black] (5.8+0.2,-3.8+0.2) rectangle (7+0.2,-2.6+0.2);
+        \draw [step=0.4/2, very thin, color=gray] (5.8+0.2,-3.8+0.2) grid (7+0.2,-2.6+0.2);
+        
+        \draw [very thick] (5.8+0.1,-3.8+0.1) rectangle (7+0.1,-2.6+0.1);
+        \filldraw [fill=LimeGreen!20!white,draw=green!40!black] (5.8+0.1,-3.8+0.1) rectangle (7+0.1,-2.6+0.1);
+        \draw [step=0.4/2, very thin, color=gray] (5.8+0.1,-3.8+0.1) grid (7+0.1,-2.6+0.1);
+        
+        \draw [very thick] (5.8,-3.8) rectangle (7,-2.6);
+        \filldraw [fill=LimeGreen!10!white,draw=green!40!black] (5.8,-3.8) rectangle (7,-2.6);
+        \draw [step=0.4/2, very thin, color=gray] (5.8,-3.8) grid (7,-2.6);
+        \draw[->] (5.6,-2.6) -- (6.1,-2.1);
+        
+        \draw (6.35,-4.15) node {{\color{black}\scriptsize{spatial}}};
+        \draw (5.2,-3.2) node {{\color{black}\scriptsize{spatial}}};
+        \draw (5.3,-2.2) node {{\color{black}\scriptsize{temporal}}};
+        
+        \draw (6.2,-4.6) node {{\color{black}\scriptsize{$\mathcal{A}\in\mathbb{R}^{N \times N \times T-1}$}}};
+      
+        \draw (8,-3.2) node {{\color{black}\large{$=$}}};
+    
+        % CP 
+        \draw [very thick] (8.6,-4.4+0.2) rectangle (8.8,-3.2+0.2);
+        \filldraw [fill=WildStrawberry!40!white,draw=green!40!black] (8.6,-4.4+0.2) rectangle (8.8,-3.2+0.2);
+        \draw (8.7,-4.8+0.2) node {{\color{black}\scriptsize{$\boldsymbol{u}_1 \in \mathbb{R}^N$}}};
+        
+        \draw [very thick] (9,-3-0.2+0.2) rectangle (10.2,-2.8-0.2+0.2);
+        \filldraw [fill=RubineRed!60!white,draw=green!40!black] (9,-3-0.2+0.2) rectangle (10.2,-2.8-0.2+0.2);
+        \draw (9.6,-3.3-0.2+0.2) node {{\color{black}\scriptsize{$\boldsymbol{v}_1 \in \mathbb{R}^N$}}};
+        
+    
+        \draw[fill=RedOrange!40!white, line width=0.8pt] (9.2,-2.4+0.2) -- (9.4,-2.4+0.2) -- (8.8,-3+0.2) -- (8.6,-3+0.2) -- cycle;
+        \draw (10-0.2,-1.9) node {{\color{black}\scriptsize{$\boldsymbol{w}_1 \in \mathbb{R}^{T-1}$}}};
+    
+        \draw (10.8,-3.2) node {{\color{black}\large{$+$}}};
+        \draw (11.6,-3.2) node {{\color{black}\large{$\dots$}}};
+        \draw (12.4,-3.2) node {{\color{black}\large{$+$}}};
+        
+        \draw [very thick] (8.6+4.4,-4.4+0.2) rectangle (8.8+4.4,-3.2+0.2);
+        \filldraw [fill=WildStrawberry!40!white,draw=green!40!black] (8.6+4.4,-4.4+0.2) rectangle (8.8+4.4,-3.2+0.2);
+        \draw (8.7+4.4,-4.8+0.2) node {{\color{black}\scriptsize{$\boldsymbol{u}_R \in \mathbb{R}^N $}}};
+        
+        \draw [very thick] (9+4.4,-3-0.2+0.2) rectangle (10.2+4.4,-2.8-0.2+0.2);
+        \filldraw [fill=RubineRed!60!white,draw=green!40!black] (9+4.4,-3-0.2+0.2) rectangle (10.2+4.4,-2.8-0.2+0.2);
+        \draw (9.6+4.4,-3.3-0.2+0.2) node {{\color{black}\scriptsize{$\boldsymbol{v}_R\in \mathbb{R}^N$}}};
+        
+        \draw[fill=RedOrange!40!white, line width=0.8pt] (9.2+4.4,-2.4+0.2) -- (9.4+4.4,-2.4+0.2) -- (8.8+4.4,-3+0.2) -- (8.6+4.4,-3+0.2) -- cycle;
+        \draw (10.1+4,-1.9) node {{\color{black}\scriptsize{$\boldsymbol{w}_R\in \mathbb{R}^{T-1}$}}};
+        
+    \end{tikzpicture}
+    \bicaption{张量分解模型}{Tensor decomposition model}
+    \label{fig:tensor}
+\end{figure}
+
+
+
+
+\begin{figure}[t!]
+	\centering
+	\begin{tikzpicture}
+		\node at (0.5,-1){\begin{tabular}{c}input image\\layer $l = 0$\end{tabular}};
+		
+		\draw (0,0) -- (1,0) -- (1,1) -- (0,1) -- (0,0);
+		
+		\node at (3,3.5){\begin{tabular}{c}convolutional layer\\with non-linearities\\layer $l = 1$\end{tabular}};
+		
+		\draw[fill=black,opacity=0.2,draw=black] (2.75,1.25) -- (3.75,1.25) -- (3.75,2.25) -- (2.75,2.25) -- (2.75,1.25);
+		\draw[fill=black,opacity=0.2,draw=black] (2.5,1) -- (3.5,1) -- (3.5,2) -- (2.5,2) -- (2.5,1);
+		\draw[fill=black,opacity=0.2,draw=black] (2.25,0.75) -- (3.25,0.75) -- (3.25,1.75) -- (2.25,1.75) -- (2.25,0.75);
+		\draw[fill=black,opacity=0.2,draw=black] (2,0.5) -- (3,0.5) -- (3,1.5) -- (2,1.5) -- (2,0.5);
+		\draw[fill=black,opacity=0.2,draw=black] (1.75,0.25) -- (2.75,0.25) -- (2.75,1.25) -- (1.75,1.25) -- (1.75,0.25);
+		\draw[fill=black,opacity=0.2,draw=black] (1.5,0) -- (2.5,0) -- (2.5,1) -- (1.5,1) -- (1.5,0);
+		
+		\node at (4.5,-1){\begin{tabular}{c}subsampling layer\\layer $l = 3$\end{tabular}};
+		
+		\draw[fill=black,opacity=0.2,draw=black] (5,1.25) -- (5.75,1.25) -- (5.75,2) -- (5,2) -- (5,1.25);
+		\draw[fill=black,opacity=0.2,draw=black] (4.75,1) -- (5.5,1) -- (5.5,1.75) -- (4.75,1.75) -- (4.75,1);
+		\draw[fill=black,opacity=0.2,draw=black] (4.5,0.75) -- (5.25,0.75) -- (5.25,1.5) -- (4.5,1.5) -- (4.5,0.75);
+		\draw[fill=black,opacity=0.2,draw=black] (4.25,0.5) -- (5,0.5) -- (5,1.25) -- (4.25,1.25) -- (4.25,0.5);
+		\draw[fill=black,opacity=0.2,draw=black] (4,0.25) -- (4.75,0.25) -- (4.75,1) -- (4,1) -- (4,0.25);
+		\draw[fill=black,opacity=0.2,draw=black] (3.75,0) -- (4.5,0) -- (4.5,0.75) -- (3.75,0.75) -- (3.75,0);
+		
+		\node at (7,3.5){\begin{tabular}{c}convolutional layer\\with non-linearities\\layer $l = 4$\end{tabular}};
+		
+		\draw[fill=black,opacity=0.2,draw=black] (7.5,1.75) -- (8.25,1.75) -- (8.25,2.5) -- (7.5,2.5) -- (7.5,1.75);
+		\draw[fill=black,opacity=0.2,draw=black] (7.25,1.5) -- (8,1.5) -- (8,2.25) -- (7.25,2.25) -- (7.25,1.5);
+		\draw[fill=black,opacity=0.2,draw=black] (7,1.25) -- (7.75,1.25) -- (7.75,2) -- (7,2) -- (7,1.25);
+		\draw[fill=black,opacity=0.2,draw=black] (6.75,1) -- (7.5,1) -- (7.5,1.75) -- (6.75,1.75) -- (6.75,1);
+		\draw[fill=black,opacity=0.2,draw=black] (6.5,0.75) -- (7.25,0.75) -- (7.25,1.5) -- (6.5,1.5) -- (6.5,0.75);
+		\draw[fill=black,opacity=0.2,draw=black] (6.25,0.5) -- (7,0.5) -- (7,1.25) -- (6.25,1.25) -- (6.25,0.5);
+		\draw[fill=black,opacity=0.2,draw=black] (6,0.25) -- (6.75,0.25) -- (6.75,1) -- (6,1) -- (6,0.25);
+		\draw[fill=black,opacity=0.2,draw=black] (5.75,0) -- (6.5,0) -- (6.5,0.75) -- (5.75,0.75) -- (5.75,0);
+		
+		\node at (9.5,-1){\begin{tabular}{c}subsampling layer\\layer $l = 6$\end{tabular}};
+		
+		\draw[fill=black,opacity=0.2,draw=black] (10,1.75) -- (10.5,1.75) -- (10.5,2.25) -- (10,2.25) -- (10,1.75);
+		\draw[fill=black,opacity=0.2,draw=black] (9.75,1.5) -- (10.25,1.5) -- (10.25,2) -- (9.75,2) -- (9.75,1.5);
+		\draw[fill=black,opacity=0.2,draw=black] (9.5,1.25) -- (10,1.25) -- (10,1.75) -- (9.5,1.75) -- (9.5,1.25);
+		\draw[fill=black,opacity=0.2,draw=black] (9.25,1) -- (9.75,1) -- (9.75,1.5) -- (9.25,1.5) -- (9.25,1);
+		\draw[fill=black,opacity=0.2,draw=black] (9,0.75) -- (9.5,0.75) -- (9.5,1.25) -- (9,1.25) -- (9,0.75);
+		\draw[fill=black,opacity=0.2,draw=black] (8.75,0.5) -- (9.25,0.5) -- (9.25,1) -- (8.75,1) -- (8.75,0.5);
+		\draw[fill=black,opacity=0.2,draw=black] (8.5,0.25) -- (9,0.25) -- (9,0.75) -- (8.5,0.75) -- (8.5,0.25);
+		\draw[fill=black,opacity=0.2,draw=black] (8.25,0) -- (8.75,0) -- (8.75,0.5) -- (8.25,0.5) -- (8.25,0);
+		
+		\node at (12,3.5){\begin{tabular}{c}fully connected layer\\layer $l = 7$\end{tabular}};
+		
+		\draw[fill=black,draw=black,opacity=0.5] (10.5,0) -- (11,0) -- (12.5,1.75) -- (12,1.75) -- (10.5,0);
+		
+		\node at (13,-1){\begin{tabular}{c}fully connected layer\\output layer $l = 8$\end{tabular}};
+		
+		\draw[fill=black,draw=black,opacity=0.5] (12.5,0.5) -- (13,0.5) -- (13.65,1.25) -- (13.15,1.25) -- (12.5,0.5);
+	\end{tikzpicture}
+	\bicaption{传统LeNet-5卷积神经网络结构图}{Traditional LeNet-5 convolutional neural network structure diagram}
+	\label{fig:traditional-convolutional-network}
+\end{figure}
+
+
+\begin{figure}
+    \begin{tikzpicture}[scale=.9,every node/.style={minimum size=1cm},on grid]
+        %slanting: production of a set of n 'laminae' to be piled up. N=number of grids.
+        \begin{scope}[
+                yshift=-83,every node/.append style={
+                yslant=0.5,xslant=-1},yslant=0.5,xslant=-1
+                ]
+            % opacity to prevent graphical interference
+            \fill[white,fill opacity=0.9] (0,0) rectangle (5,5);
+            \draw[step=4mm, black] (0,0) grid (5,5); %defining grids
+            \draw[step=1mm, red!50,thin] (3,1) grid (4,2);  %Nested Grid
+            \draw[black,very thick] (0,0) rectangle (5,5);%marking borders
+            \fill[red] (0.05,0.05) rectangle (0.35,0.35);
+            %Idem as above, for the n-th grid:
+        \end{scope}
+            
+        \begin{scope}[
+            yshift=0,every node/.append style={
+                yslant=0.5,xslant=-1},yslant=0.5,xslant=-1
+                         ]
+            \fill[white,fill opacity=.9] (0,0) rectangle (5,5);
+            \draw[black,very thick] (0,0) rectangle (5,5);
+            \draw[step=5mm, black] (0,0) grid (5,5);
+        \end{scope}
+            
+        \begin{scope}[
+            yshift=90,every node/.append style={
+            yslant=0.5,xslant=-1},yslant=0.5,xslant=-1
+                         ]
+            \fill[white,fill opacity=.9] (0,0) rectangle (5,5);
+            \draw[step=10mm, black] (1,1) grid (4,4);
+            \draw[black,very thick] (1,1) rectangle (4,4);
+            \draw[black,dashed] (0,0) rectangle (5,5);
+        \end{scope}
+            
+        \begin{scope}[
+            yshift=170,every node/.append style={
+                yslant=0.5,xslant=-1},yslant=0.5,xslant=-1
+              ]
+            \fill[white,fill opacity=0.6] (0,0) rectangle (5,5);
+            \draw[step=10mm, black] (2,2) grid (5,5);
+            \draw[step=2mm, green] (2,2) grid (3,3);
+            \draw[black,very thick] (2,2) rectangle (5,5);
+            \draw[black,dashed] (0,0) rectangle (5,5);
+        \end{scope}
+            
+        \begin{scope}[
+            yshift=-170,every node/.append style={
+            yslant=0.5,xslant=-1},yslant=0.5,xslant=-1
+                      ]
+            %marking border
+            \draw[black,very thick] (0,0) rectangle (5,5);
+    
+               %drawing corners (P1,P2, P3): only 3 points needed to define a plane.
+            \draw [fill=lime](0,0) circle (.1) ;
+            \draw [fill=lime](0,5) circle (.1);
+            \draw [fill=lime](5,0) circle (.1);
+            \draw [fill=lime](5,5) circle (.1);
+    
+            %drawing bathymetric hypotetic countours on the bottom grid:    	
+            \draw [ultra thick](0,1) parabola bend (2,2) (5,1)  ;
+            \draw [dashed] (0,1.5) parabola bend (2.5,2.5) (5,1.5) ;
+            \draw [dashed] (0,2) parabola bend (2.7,2.7) (5,2)  ;
+            \draw [dashed] (0,2.5) parabola bend (3.5,3.5) (5,2.5)  ;
+            \draw [dashed] (0,3.5)  parabola bend (2.75,4.5) (5,3.5);
+            \draw [dashed] (0,4)  parabola bend (2.75,4.8) (5,4);
+            \draw [dashed] (0,3)  parabola bend (2.75,3.8) (5,3);
+            \draw[-latex,thick](2.8,1)node[right]{$\mathsf{Shoreline}$}
+                     to[out=180,in=270] (2,1.99);
+        \end{scope} %end of drawing grids
+    
+        %putting arrows and labels:
+        \draw[-latex,thick] (6.2,2) node[right]{$\mathsf{Bathymetry}$}
+             to[out=180,in=90] (4,2);
+    
+        \draw[-latex,thick](5.8,-.3)node[right]{$\mathsf{Comp.\ G.}$}
+            to[out=180,in=90] (3.9,-1);
+    
+        \draw[-latex,thick](5.9,5)node[right]{$\mathsf{Wind\ G.}$}
+            to[out=180,in=90] (3.6,5);
+    
+        \draw[-latex,thick](5.9,8.4)node[right]{$\mathsf{Friction\ G.}$}
+            to[out=180,in=90] (3.2,8);
+    
+        \draw[-latex,thick,red](5.3,-4.2)node[right]{$\mathsf{G. Cell}$}
+            to[out=180,in=90] (0,-2.5);
+    
+        \draw[-latex,thick,red](4.3,-1.9)node[right]{$\mathsf{Nested\ G.}$}
+            to[out=180,in=90] (2,-.5);
+    
+        \draw[-latex,thick](4,-6)node[right]{$\mathsf{Batymetry}$}
+            to[out=180,in=90] (2,-5);	
+        %drawing points on grid's conrners.
+        \fill[black,font=\footnotesize]
+            (-5,-4.3) node [above] {$P_{1}$}
+            (-.3,-5.6) node [below] {$P_{2}$}
+            (5.5,-4) node [above] {$P_{3}$};	
+    \end{tikzpicture}
+    \bicaption{复杂的网格图}{Complex grid diagram}
+    \label{fig:complex_grid}
+\end{figure}
 

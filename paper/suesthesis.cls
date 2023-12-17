@@ -281,7 +281,8 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 %% 并列子图
 \RequirePackage{subfig}
 % 设置颜色
-\RequirePackage{xcolor,color}
+\RequirePackage{color,xcolor}
+% \RequirePackage{usenames,dvipsnames}
 % 用于设置
 \RequirePackage{pifont}       % \ding{xx}
 \RequirePackage{bbding}       % \Checkmark,\XSolid,... (需要和pifont宏包共同使用)
@@ -295,9 +296,14 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % 使用tikz进行画图
 %\def\pgfsysdriver{pgfsys -dvipdfmx.def}
 \RequirePackage{tikz}
+\RequirePackage{tikz-3dplot}
 % pgfplots画图处理
 \RequirePackage{pgfplots}
+\usetikzlibrary{positioning, fit, arrows.meta, shapes,quotes}
+\usetikzlibrary{shapes,snakes}
+\usetikzlibrary{bayesnet}
 \pgfplotsset{compat=1.18}
+\usepgfplotslibrary{ternary}
 % 设置插入的列表信息
 \RequirePackage{enumitem}
 %--------------------------------
