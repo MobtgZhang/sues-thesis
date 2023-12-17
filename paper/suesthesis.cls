@@ -257,7 +257,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \RequirePackage{tabularx,array}
 %% 长表格
 \RequirePackage{longtable}
-\RequirePackage{threeparttable}
+\RequirePackage{threeparttablex}
 % 用于插入表格当中斜线
 \RequirePackage{diagbox}
 % 设置插入的三线表
