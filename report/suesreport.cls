@@ -122,9 +122,60 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
         format={\heiti\xiaosi},
     }
 }
-%---------------------------------
 % 使用数学公式
 \RequirePackage{mathtools,amsmath,amsfonts,amssymb,amsthm,bm,mathrsfs}
+% -----------------------------------------------------------------
+% 载入自动引用宏包
+\RequirePackage{cleveref}
+\crefname{figure}{图}{图}
+\crefname{table}{表}{表}
+\crefname{equation}{式}{式}
+% 数学环境, 定理等设置
+\crefname{chapter}{章}{章}
+\crefname{section}{节}{节}
+\crefname{subsection}{小节}{小节}
+
+\newtheorem{definition}{定义}
+\crefname{definition}{定义}{定义}
+
+\newtheorem{theorem}{定理}
+\crefname{theorem}{定理}{定理}
+
+\newtheorem{lemma}{引理}
+\crefname{lemma}{引理}{引理}
+
+\crefname{proof}{证明}{证明}
+
+\newtheorem{corollary}{推论}
+\crefname{corollary}{推论}{推论}
+
+\newtheorem{assumption}{假设}
+\crefname{assumption}{假设}{假设}
+
+\newtheorem{conjecture}{猜想}
+\crefname{conjecture}{猜想}{猜想}
+
+\newtheorem{axiom}{公理}
+\crefname{axiom}{公理}{公理}
+
+\newtheorem{principle}{定律}
+\crefname{principle}{定律}{定律}
+
+\newtheorem{problem}{问题}
+\crefname{problem}{问题}{问题}
+
+\newtheorem{example}{例}
+\crefname{example}{例}{例}
+
+\newtheorem{solution}{解}
+\crefname{solution}{解}{解}
+%---------------------------------
+\RequirePackage{tikz}
+% pgfplots画图处理
+\RequirePackage{pgfplots}
+\usepgfplotslibrary{ternary}
+\pgfplotsset{compat=1.18}
+
 % 表格
 \RequirePackage{tabularx,array,caption}
 %% 长表格
@@ -143,7 +194,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \graphicspath{{figures/}}
 
 %% 并列子图
-\RequirePackage{subfigure}
+\RequirePackage{subfig}
 %---------------------------------
 % 使用tikz进行画图
 \RequirePackage{tikz}
