@@ -276,6 +276,37 @@
     \end{longtable}
 \end{ThreePartTable}
 
+
+标准 LaTeX 提供有 array 和 tabular 两个制表环境，它们的完整格式如下：
+\begin{enumerate}[label=(\arabic*)]
+    \item \verb|\begin{array}[表格位置]{列样式}  \end{array}|
+
+    \item \verb|\begin{tabular}[表格位置]{列样式}  \end{tabular}|
+    
+    \item \verb|\begin{tabular*}{表格总宽度}[表格位置]{列样式}  \end{tabular*}|
+\end{enumerate}
+这两个环境的选项和参数定义是相同的，不过 array 主要用于数组矩阵的排版，且只能用在数学环境中，如 equation 等。
+
+扩展后的两个环境的列样式选项：
+
+\begin{enumerate}[label=(\arabic*)]
+    \item \verb|l|：列内容左对齐
+    \item \verb|c|：列内容居中
+    \item \verb|r|：列内容右对齐
+    \item \verb|p{列宽}|：设置该列宽度，文本顶部对齐
+    \item \verb|m{列宽}|：设置该列宽度，文本居中对齐
+    \item \verb|b{列宽}|：设置该列宽度，文本底部对齐
+    \item \verb|>{声明}|：声明可以是命令或插入列元素之前的文本
+    \item \verb|<{声明}|：声明可以是命令或插入列元素之后的文本
+    \item \verb|@{声明}|：该列每行插入声明中文本
+    \item \verb|*{重复次数}{列样式}|：重复列样式
+    \item \verb|!{文本}|：在文本前后插入 \verb|\arrayrulewidth|
+    \item \verb|@{}|：取消列间的 \verb|\tabcolsep|
+    \item \verb|@{|：在列前插入 \verb|\tabcolsep|
+    \item \verb|@}|：在列后插入 \verb|\tabcolsep|
+    \item \verb|||：列边或列之间插入竖线
+\end{enumerate}
+
 \section{画图}
 本章节介绍图片插入方法，一共有三种插入图片的方法，我在下面详细介绍。
 \subsection{普通插图方法}
