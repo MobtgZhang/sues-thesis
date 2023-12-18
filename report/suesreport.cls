@@ -62,6 +62,8 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \setCJKmainfont[AutoFakeBold = {2.15},ItalicFont={KaiTi}]{SimSun}
 
 %\RequirePackage[T1]{fontenc}
+\RequirePackage{color}
+\RequirePackage[table,xdraw]{xcolor}
 % 每行缩进两个汉字
 \setlength\parindent{2em}
 % 设置段与段之间的垂直距离 \parskip默认橡皮长度是0pt plus 1pt
@@ -175,12 +177,17 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \RequirePackage{pgfplots}
 \usepgfplotslibrary{ternary}
 \pgfplotsset{compat=1.18}
+%% 表格的颜色
+
 
 % 表格
 \RequirePackage{tabularx,array,caption}
 %% 长表格
 \RequirePackage{longtable}
 %% booktabs 提供了\toprule 等命令.三线表
+
+
+
 \RequirePackage{booktabs}
 \RequirePackage{makecell}                 % 三线表-竖线
 % 支持跨行和跨列
@@ -216,7 +223,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \setcitestyle{square,super}
 %------------------------------------------------------
 % 设置代码环境
-\RequirePackage{listings,color}
+\RequirePackage{listings}
 \lstnewenvironment{Matlab}[1]{
 \lstset{language=matlab,               % choose the language of the code
   xleftmargin=20pt,

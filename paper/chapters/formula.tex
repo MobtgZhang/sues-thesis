@@ -307,6 +307,69 @@
     \item \verb|||：列边或列之间插入竖线
 \end{enumerate}
 
+彩色的表格可以设置表格中数据、文本、行、列、单元格前景和背景以及边框的颜色，从而得到彩色表格。
+需要 array 和 color 两个宏包的支持。 
+它提供了一组着色命令，经常用到是列着色命令，其格式为：
+
+\verb|\columncolor[色系]{色名}[左伸出][右伸出]|
+
+常用色系有三原色 rgb 和灰度 gray 两种；被预定义的色名有68个，目前貌似被废弃，
+所以下面我使用了\verb|definecolor|定义颜色，可以用RGB颜色定义也可以用HTML十六进制格式定义，
+详见 color 宏包介绍中所附的色标；左右伸出的长度单位可用 pt。
+
+\begin{table}[hbpt]
+    \centering
+    \bicaption{彩色表格的一个具体例子}{A specific example of a colored table}
+    \label{fig:my_color_table1}
+    \begin{tabular}{cp{1.5cm}<{\centering}p{1.5cm}<{\centering}p{1.5cm}<{\centering}p{1cm}<{\centering}p{1.5cm}<{\centering}p{1cm}<{\centering}}
+        \toprule[1.5pt]
+        \rowcolor[HTML]{E5B9B7} 
+        \diagbox{行的名字}{列的名字}    & A     & B   & C   & D   & E    & F   \\
+        \midrule[1.5pt]
+        \rowcolor[HTML]{FFFFFF} 
+        Masd    & 12    & 123 & 132 & 212 & 5464 & 1   \\
+        \rowcolor[HTML]{CCCCFF} 
+        Bafsd   & 41564 & 152 & 1   & 313 & 13   & 131 \\
+        \rowcolor[HTML]{FFFFFF} 
+        SDfd    & 1564  & 231 & 2   & 465 & 416  & 3   \\
+        \rowcolor[HTML]{9900FF} 
+        Ccsaz   & 12    & 123 & 132 & 212 & 5464 & 1   \\
+        \rowcolor[HTML]{FFFFFF} 
+        Xasd    & 41564 & 152 & 1   & 313 & 13   & 131 \\
+        \rowcolor[HTML]{00FF00} 
+        Xajj    & 1564  & 231 & 2   & 465 & 416  & 3   \\
+        \rowcolor[HTML]{FFFFFF} 
+        XADadsf & 12    & 123 & 132 & 212 & 5464 & 1   \\
+        \rowcolor[HTML]{FF6600} 
+        Gszdf   & 41564 & 152 & 1   & 313 & 13   & 131 \\
+        \bottomrule[1.5pt]
+    \end{tabular}
+\end{table}
+
+\begin{table}[hbpt]
+    \centering
+    \definecolor{SkyBlue}{RGB}{135,206,235}
+    \definecolor{Magenta}{RGB}{255,0,255}
+    \definecolor{CornflowerBlue}{RGB}{100,149,237}
+    \definecolor{Salmon}{RGB}{250,128,114}
+    \definecolor{yellow}{RGB}{255,255,0}
+    \definecolor{Mulberry}{RGB}{197,75,140}
+    \bicaption{彩色表格的又一个具体例子}{Another specific example of a colored table}
+    \label{fig:my_color_table2}
+    \begin{tabular}{>{\columncolor{SkyBlue}}p{1.5cm}<{\centering}p{1.5cm}<{\centering}p{1.5cm}<{\centering}p{1.5cm}<{\centering}p{1.5cm}<{\centering}p{1.5cm}<{\centering}}
+        \toprule[1.5pt]
+        \rowcolor[gray]{.9}\diagbox{行名}{列名} &1 &2 &3 &4 &5\\
+        \midrule[1pt]
+        A & \multicolumn{1}{>{\columncolor{CornflowerBlue}[0pt][0pt]}c}{318.3} &327.8 152.0 &104.9 &135.8 \\
+        B & & \multicolumn{1}{>{\columncolor{Salmon}[0pt][0pt]}c}{335.5} & 137.7 &290.9 &198.6 \\
+        C & & & \multicolumn{1}{>{\columncolor{yellow}[0pt][0pt]}c}{291.9} &325.9 &435.90 \\
+        D & & & & \multicolumn{1}{>{\columncolor{Magenta}[0pt][0pt]}c}{191.8} & 464.1 \\
+        E & & & & & \multicolumn{1}{>{\columncolor{ Mulberry}[0pt][0pt]}c}{158.9}\\
+        \bottomrule[1.5pt]
+    \end{tabular}
+\end{table}
+
+
 \section{画图}
 本章节介绍图片插入方法，一共有三种插入图片的方法，我在下面详细介绍。
 \subsection{普通插图方法}

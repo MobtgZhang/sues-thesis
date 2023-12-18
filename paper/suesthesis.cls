@@ -281,7 +281,9 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 %% 并列子图
 \RequirePackage{subfig}
 % 设置颜色
-\RequirePackage{color,xcolor}
+\RequirePackage{color}
+\RequirePackage[table,xdraw]{xcolor}
+% \RequirePackage[table, cellspace]{colortbl}
 % \RequirePackage{usenames,dvipsnames}
 % 用于设置
 \RequirePackage{pifont}       % \ding{xx}
