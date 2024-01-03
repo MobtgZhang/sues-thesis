@@ -82,7 +82,8 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % 设置摘要的样式
 \newpagestyle{AbstractStyle}{
     \fancyhf{}
-  \setfoot{}{\Roman{page}}{}
+    \setcounter{page}{1}
+    \setfoot{}{\Roman{page}}{}
 }
 % 目录的第一页也设置为相同的样式
 \AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{AbstractStyle}}}
