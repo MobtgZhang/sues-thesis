@@ -207,7 +207,11 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \renewcommand\theequation{\arabic{chapter}-\arabic{equation}}
 \renewcommand\thefigure{\arabic{chapter}-\arabic{figure}}
 \renewcommand\thetable{\arabic{chapter}-\arabic{table}}
-
+% 这里设置了一个autoref的中文显示方式
+\renewcommand{\figureautorefname}{图}
+\renewcommand{\tableautorefname}{表}
+\renewcommand{\equationautorefname}{公式}
+\renewcommand{\sectionautorefname}{节}
 %各个章节重新引用定义
 %\crefname{section}{se}{}
 % -----------------------------------------------------------------
