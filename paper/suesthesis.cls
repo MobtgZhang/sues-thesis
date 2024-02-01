@@ -212,6 +212,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \renewcommand{\tableautorefname}{表}
 \renewcommand{\equationautorefname}{公式}
 \renewcommand{\sectionautorefname}{节}
+\newcommand{\algorithmautorefname}{算法}
 %各个章节重新引用定义
 %\crefname{section}{se}{}
 % -----------------------------------------------------------------
