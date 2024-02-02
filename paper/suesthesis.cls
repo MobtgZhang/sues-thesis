@@ -391,6 +391,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
         frame=shadowbox, % 阴影效果
         rulesepcolor= \color{ red!20!green!20!blue!20} ,
         tabsize=4,
+        showstringspaces=false, % 不显示空格字符
         title=\lstname
 		#1
         % 
@@ -408,6 +409,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
         frame=shadowbox, % 阴影效果
         rulesepcolor= \color{ red!20!green!20!blue!20} ,
         tabsize=4,
+        showstringspaces=false, % 不显示空格字符
         title=\lstname
 		#1
         % 
