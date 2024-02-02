@@ -80,7 +80,7 @@
 
 \section{画表}
 \subsection{简单表格画法}
-三线表画法：前面已经说明了三线表的画法，这里再次举例一个三线表，如表\ref{tab:heightweight}所示。
+三线表画法：前面已经说明了三线表的画法，这里再次举例一个三线表，如\autoref{tab:heightweight}所示。
 
 \begin{table}[!htp]
     \newcolumntype{L}{X}
@@ -125,7 +125,7 @@
     \end{tabularx}
 \end{table}
 
-当然也可以画一个较为复杂的表，如表\ref{tab:model_dataset}所示
+当然也可以画一个较为复杂的表，\autoref{tab:model_dataset}所示
 
 \begin{table}[hbpt]
     \centering
@@ -276,6 +276,34 @@
     \end{longtable}
 \end{ThreePartTable}
 
+注意，ThreePartTable是支持长表格的底部注释，如果使用普通表格的话，使用threeparttable即可，示例有\autoref{tab:heightweight-ext}的例子即可：
+\begin{table}[htbp]
+    \centering
+    \bicaption{某校学生身高体重样本}{Height and weight samples of students in a school}
+    \newcolumntype{L}{X}
+    \newcolumntype{C}{>{\centering \arraybackslash}X}
+    \newcolumntype{R}{>{\raggedright \arraybackslash}X}
+    \label{tab:heightweight-ext}
+    \begin{threeparttable}
+        \begin{tabularx}{0.9\textwidth}{CCCC}
+            \toprule[1.5pt]
+            序号&年龄$^{\dagger}$&身高&体重\\
+            \midrule[0.75pt]
+            1&14&156&42\\
+            2&16&158&45\\
+            3&14&162&48\\
+            4&15&163&50\\
+            \midrule[0.75pt]
+            %\cmidrule{2-4}
+            平均&15&159.75&46.25\\
+            \bottomrule[1.5pt]
+        \end{tabularx}
+        \begin{tablenotes}
+            \item[*] This is a table note.
+            \item[$\dagger$] This is another table note.
+        \end{tablenotes}
+    \end{threeparttable}
+\end{table}
 
 标准 LaTeX 提供有 array 和 tabular 两个制表环境，它们的完整格式如下：
 \begin{enumerate}[label=(\arabic*)]
@@ -373,7 +401,7 @@
 \section{画图}
 本章节介绍图片插入方法，一共有三种插入图片的方法，我在下面详细介绍。
 \subsection{普通插图方法}
-如图\ref{fig:my_pic1}所示，在这里我们插入了一个图片。其中可以自定义缩放比例以及图片的高度等等信息。
+如\autoref{fig:my_pic1}所示，在这里我们插入了一个图片。其中可以自定义缩放比例以及图片的高度等等信息。
 \begin{figure}[hbpt]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/test.jpg}
@@ -416,8 +444,8 @@
 
 另外一种就是latex自带的一种画图方法，这里示例两种latex自带的画图方法。
 \begin{enumerate}
-    \item \textbf{复杂网络结构图}：如图\ref{fig:complex_fig}(a) 所示。
-    \item \textbf{函数图像}：如图\ref{fig:complex_fig}(b),(c) 所示，详细参考\href{https://pgfplots.sourceforge.net/gallery.html}，函数图像的画法使用到的是pgfplots库当中的元素画图。
+    \item \textbf{复杂网络结构图}：如\autoref{fig:complex_fig} 所示。
+    \item \textbf{函数图像}：如\autoref{subfig:my_pic_b}和\autoref{subfig:my_pic_c}所示，详细参考\href{https://pgfplots.sourceforge.net/gallery.html}，函数图像的画法使用到的是pgfplots库当中的元素画图。
 \end{enumerate}
 
 \begin{figure}
@@ -479,6 +507,7 @@
                 \draw[->] (8) --(10);
             \end{tikzpicture}
         \end{minipage}
+        \label{subfig:my_pic_a}
     }\vspace{-0.1cm}
     \subfloat[函数图像]{
         \begin{minipage}[t]{0.4\linewidth}
@@ -508,6 +537,7 @@
                 \end{axis}
             \end{tikzpicture}
         \end{minipage}
+        \label{subfig:my_pic_b}
     }\vspace{-0.1cm}
     \quad
     \subfloat[统计图]{
@@ -546,6 +576,7 @@
                 \end{axis}
             \end{tikzpicture}
         \end{minipage}
+        \label{subfig:my_pic_c}
     }
     \bicaption{latex自带工具画图}{Drawing of latex built-in tools}
     \label{fig:complex_fig}
