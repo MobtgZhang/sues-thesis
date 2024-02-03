@@ -79,12 +79,13 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 %% 设置章节前的页码格式
 \RequirePackage[pagestyles]{titlesec}
 \RequirePackage{fancyhdr}
-% 设置摘要的样式
+% 设置摘要和目录的样式
 \newpagestyle{AbstractContentsStyle}{
     \fancyhf{}
     \setcounter{page}{1}
     \setfoot{}{\Roman{page}}{}
 }
+
 % 目录的第一页也设置为相同的样式
 \AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{AbstractContentsStyle}}}
 % 设置默认的页眉页脚样式
