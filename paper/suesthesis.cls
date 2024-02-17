@@ -190,7 +190,10 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \captionsetup[figure][bi-first]{name=图,labelsep=space,singlelinecheck=on} %设置图片的中文编号前缀
 \DeclareBiCaptionSeparator{tmpbicaptionskip}{\vspace{3pt}}
 \captionsetup{bi-separator=tmpbicaptionskip}
+
 % 这里设置表格使得在排版中按照最上浮动的浮动格式
+\setlength{\abovecaptionskip}{-5pt} % 设置图片上方的间距为 -5pt
+\setlength{\belowcaptionskip}{-5pt} % 设置图片下方的间距为 -5pt
 %\makeatletter
 %\setlength{@fptop}{0pt}
 %\makeatother
