@@ -322,6 +322,21 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \usepgfplotslibrary{ternary}
 % 设置插入的列表信息
 \RequirePackage{enumitem}
+\makeatletter
+\renewcommand{\@listI}{%
+    \leftmargin=25pt
+    \rightmargin=0pt
+    \labelsep=0.5em
+    \labelwidth=20pt
+    \itemindent=0em
+    \listparindent=0pt
+    \topsep=0pt plus 2pt minus 4pt
+    \partopsep=0pt plus 1pt minus 1pt
+    \parsep=0.5em plus 1em minus 0em
+    \itemsep=\parsep
+}
+\makeatother
+
 %--------------------------------
 % 设置算法
 \RequirePackage[noend]{algpseudocode}
