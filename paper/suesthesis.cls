@@ -287,6 +287,8 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \RequirePackage{cprotect}
 %% 设置插入的图片
 \RequirePackage{graphicx}
+%% 設置插入SVG圖片
+% \RequirePackage{svg}
 
 %% 如果插入的图片没有指定扩展名，那么依次搜索下面的扩展名所对应的文件
 \DeclareGraphicsExtensions{.pdf,.eps,.png,.jpg,.jpeg}
