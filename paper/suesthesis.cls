@@ -228,39 +228,39 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \crefname{section}{节}{节}
 \crefname{subsection}{小节}{小节}
 
-\newtheorem{definition}{定义}
+\newtheorem{definition}{定义}[chapter]
 \crefname{definition}{定义}{定义}
 
-\newtheorem{theorem}{定理}
+\newtheorem{theorem}{定理}[chapter]
 \crefname{theorem}{定理}{定理}
 
-\newtheorem{lemma}{引理}
+\newtheorem{lemma}{引理}[chapter]
 \crefname{lemma}{引理}{引理}
 
 \crefname{proof}{证明}{证明}
 
-\newtheorem{corollary}{推论}
+\newtheorem{corollary}{推论}[chapter]
 \crefname{corollary}{推论}{推论}
 
-\newtheorem{assumption}{假设}
+\newtheorem{assumption}{假设}[chapter]
 \crefname{assumption}{假设}{假设}
 
-\newtheorem{conjecture}{猜想}
+\newtheorem{conjecture}{猜想}[chapter]
 \crefname{conjecture}{猜想}{猜想}
 
-\newtheorem{axiom}{公理}
+\newtheorem{axiom}{公理}[chapter]
 \crefname{axiom}{公理}{公理}
 
-\newtheorem{principle}{定律}
+\newtheorem{principle}{定律}[chapter]
 \crefname{principle}{定律}{定律}
 
-\newtheorem{problem}{问题}
+\newtheorem{problem}{问题}[chapter]
 \crefname{problem}{问题}{问题}
 
-\newtheorem{example}{例}
+\newtheorem{example}{例}[chapter]
 \crefname{example}{例}{例}
 
-\newtheorem{solution}{解}
+\newtheorem{solution}{解}[chapter]
 \crefname{solution}{解}{解}
 %-----------------------------------------
 \RequirePackage{float}
