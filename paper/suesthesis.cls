@@ -343,6 +343,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % 设置算法
 \RequirePackage[noend]{algpseudocode}
 \RequirePackage{algorithmicx,algorithm}
+\renewcommand{\thealgorithm}{\arabic{chapter}-\arabic{algorithm}}
 \floatname{algorithm}{算法}
 \renewcommand{\algorithmicrequire}{\textbf{输入:}}
 \renewcommand{\algorithmicensure}{\textbf{输出:}}
