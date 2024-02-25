@@ -344,6 +344,9 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \RequirePackage[noend]{algpseudocode}
 \RequirePackage{algorithmicx,algorithm}
 \renewcommand{\thealgorithm}{\arabic{chapter}-\arabic{algorithm}}
+% 在每个新章节的开头重置算法计数器为1
+\let\oldchapter\chapter
+\renewcommand{\chapter}{\setcounter{algorithm}{0}\oldchapter}
 \floatname{algorithm}{算法}
 \renewcommand{\algorithmicrequire}{\textbf{输入:}}
 \renewcommand{\algorithmicensure}{\textbf{输出:}}
