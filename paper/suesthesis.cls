@@ -157,7 +157,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
         titleformat={\heiti\sanhao\centering},
     },
     section={
-        format={\bfseries\heiti\xiaosi},
+        format={\bfseries\heiti\sihao},
     },
     subsection={
         format={\bfseries\heiti\xiaosi},
