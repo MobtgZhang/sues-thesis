@@ -23,7 +23,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \newcommand{\xiaowu}{\fontsize{9pt}{13.5pt}\selectfont}    
 \newcommand{\liuhao}{\fontsize{7.5pt}{11.25pt}\selectfont}
 % -----------------------------------------------------------------
-\LoadClass[UTF8,a4paper,cs4size,zihao=-4,linespread=1.4,space=auto,oneside]{ctexbook}
+\LoadClass[UTF8,a4paper,cs4size,zihao=-4,linespread=1.625,space=auto,oneside]{ctexbook}
 % 正文中文为宋体，非中文为Times New Roman字体，小四，1.5倍行间距，首行缩进2字符。
 \RequirePackage{fontspec}
 %设置英文字体
@@ -96,7 +96,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
     \fancyhf{}
     \fancyfoot[C]{\songti\xiaowu 第 \thepage 页}
     \fancyhead[L]{\songti\xiaowu 上海工程技术大学硕士学位论文}
-    \fancyhead[R]{\songti\xiaowu 第 \zhnum{chapter} 章 \quad\chaptertitle }
+    \fancyhead[R]{\songti\xiaowu 第\zhnum{chapter}章 \quad\chaptertitle }
 }
 
 %设置双线页眉
@@ -152,20 +152,32 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
     bibname={参考文献},
     appendixname={附\quad 录},
     chapter={
-        beforeskip={16pt},
+        % 每章标题前空一行，以三号黑体居中打印。
+        beforeskip={-2ex plus 0.1ex minus 0.1ex}, 
         nameformat={\heiti\sanhao\centering},
         titleformat={\heiti\sanhao\centering},
+        afterskip={2ex plus 0.1ex minus 0.1ex}
+        % “章”下空一行为“节”，以四号黑体左起打印。
     },
     section={
         format={\bfseries\heiti\sihao},
+        beforeskip={1ex plus 0.1ex minus 0.1ex},
+        afterskip={1ex plus 0.1ex minus 0.1ex}
     },
     subsection={
-        format={\bfseries\heiti\xiaosi},
+        % “节”和“小节”标题的段前、段后各空0.5行。
+        % “小节”以小四号黑体左起打印。
+        format={\bfseries\heiti\xiaosi\vspace{-1em}},
+        beforeskip={1ex plus 0.1ex minus 0.1ex},
+        afterskip={1ex plus 0.1ex minus 0.1ex}
     },
     subsubsection={
-        format={\bfseries\heiti\xiaosi},
+        format={\bfseries\heiti\xiaosi\vspace{-1em}},
+        beforeskip={1ex plus 0.1ex minus 0.1ex},
+        afterskip={1ex plus 0.1ex minus 0.1ex}
     }
 }
+
 
 % -----------------------------------------------------------------
 % 设置首行缩进
@@ -204,6 +216,16 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % ----------------------------------------------
 % 设置插入的数学公式
 \RequirePackage{mathtools,amsmath,amsfonts,amssymb,amsthm,bm,mathrsfs}
+
+
+\AtBeginDocument{
+    \addtolength{\abovedisplayskip}{-1ex}
+    \addtolength{\abovedisplayshortskip}{0ex}
+    \addtolength{\belowdisplayskip}{-1ex}
+    \addtolength{\belowdisplayshortskip}{0ex}
+}
+
+
 % 载入自动引用宏包
 \RequirePackage{cleveref}
 \crefname{figure}{图}{图}
