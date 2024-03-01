@@ -6,7 +6,7 @@
 
 其中答辩PPT模板可以用作三个阶段的模板：开题答辩、中期答辩和最终答辩，细微调整了一些模板，以供大家参考和使用。
 
-如果在编译过程中遇到什么问题，可以在项目提交`issue`，`sues-thesis` 目前仅支持 `XeTeX`引擎，字符编码仅支持 UTF-8。
+如果在编译过程中遇到什么问题，可以在项目提交`issue`，`sues-thesis` 目前仅支持 `XeLaTeX`引擎，字符编码仅支持 UTF-8。
 ## 编译预览
 
 <table>
@@ -62,7 +62,7 @@ sudo fc-cache -fv
 + [论文模板sues-thesis](https://www.overleaf.com/read/wsxxrhvmfhjm)；
 + [答辩sues-ppt](https://www.overleaf.com/read/wvnggtjdkjbc)。
 
-overleaf 需要将源码导入到自己的项目当中，上述链接是只读模式，注意把编译设置为`xetex`编译选项，目前不支持`pdflatex`。
+overleaf 需要将源码导入到自己的项目当中，上述链接是只读模式，注意把编译设置为`xelatex`编译选项，目前不支持`pdflatex`。
 
 ## latexstudio下载地址
 + [报告模板sues-report](https://www.latexstudio.net/index/details/index/ids/3058)
