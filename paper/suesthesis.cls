@@ -53,7 +53,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % 黑体
 \setCJKfamilyfont{zhhei}[AutoFakeBold = 2.17]{SimHei}
 % MacOS 设置为下面情形：
-% \setCJKfamilyfont{zhhei}[AutoFakeBold = 2.17]{STHei}
+% \setCJKfamilyfont{zhhei}[AutoFakeBold = 2.17]{STHeiti}
 \renewcommand*{\heiti}{\CJKfamily{zhhei}}
 % 设置文章中主字体
 \setCJKmainfont[AutoFakeBold]{SimSun}
