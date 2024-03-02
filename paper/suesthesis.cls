@@ -48,7 +48,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % 宋体
 \setCJKfamilyfont{zhsong}[AutoFakeBold = {2.17}]{SimSun}
 % MacOS 设置为下面情形：
-% \setCJKfamilyfont{zhhei}[AutoFakeBold = 2.17]{STSong}
+% \setCJKfamilyfont{zhsong}[AutoFakeBold = 2.17]{STSong}
 \renewcommand*{\songti}{\CJKfamily{zhsong}}
 % 黑体
 \setCJKfamilyfont{zhhei}[AutoFakeBold = 2.17]{SimHei}
@@ -58,7 +58,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % 设置文章中主字体
 \setCJKmainfont[AutoFakeBold]{SimSun}
 % MacOS 设置为下面情形：
-% \setCJKfamilyfont{zhhei}[AutoFakeBold = 2.17]{STSong}
+% \setCJKmainfont[AutoFakeBold = 2.17]{STSong}
 % MacOS 这里设置的是 STSongti-SC-Regular，注意修改
 
 
