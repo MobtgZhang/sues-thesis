@@ -85,7 +85,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % 设置摘要和目录的样式
 \newpagestyle{AbstractContentsStyle}{
     \fancyhf{}
-    \setcounter{page}{1}
+    % \setcounter{page}{1}
     \setfoot{}{\Roman{page}}{}
 }
 
