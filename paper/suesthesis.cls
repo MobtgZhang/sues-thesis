@@ -519,15 +519,15 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \noindent \hbox to \z@{\hss\@thefnmark\hspace{0.2em}}#1}
 \renewcommand\thefootnote{\myfootnotestyle{\arabic{footnote}}}
 % 每一页重置角标计数器
-% \RequirePackage{perpage}
-% \MakePerPage{footnote}
+\RequirePackage{perpage}
+\MakePerPage{footnote}
 
 %以下选项选一
 \def\@makefnmark{\hbox{\textsuperscript{\@thefnmark}}}%正文中脚注标签采取上标形式
 %\def\@makefnmark{\hbox{\@thefnmark}}%正文中脚注标签与正文平齐
 %\def\@makefnmark{\hbox{【\@thefnmark{}】}}%正文中脚注标签加一个全角的方括号【】
 %数字单纯带圈，正常数字
-\newcommand\myfootnotestyle[1]{\ifcase#1  \or \ding{191}  \or \ding{192}\or \ding{193}\or
+\newcommand\myfootnotestyle[1]{\ifcase#1  \or \ding{191} \or \ding{192}\or \ding{193}\or
 \ding{194}\or \ding{195}\or \ding{196}\or \ding{197}%
 \or \ding{198}\or \ding{199}\or \ding{200}\or \ding{201}\else *\fi\relax}
 %--------------------------------------------------------
