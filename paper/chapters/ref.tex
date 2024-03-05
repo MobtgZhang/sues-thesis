@@ -1,6 +1,21 @@
+
 %设置参考文献风格，参照使用 https://github.com/zepinglee/gbt7714-bibtex-style
+
+% 设置附录的页眉页脚样式
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyfoot[C]{\songti\xiaowu 第 \thepage 页}
+    \fancyhead[L]{\songti\xiaowu 上海工程技术大学硕士学位论文}
+    \fancyhead[R]{\songti\xiaowu \quad 参考文献 }
+}
+\pagestyle{plain}
+
 % 设置参考文献
 \bibliographystyle{gbt7714-2015-author-year}
-\bibliography{bib/refers}
+\setlength{\bibsep}{0em}
+\renewcommand{\bibfont}{\zihao{5}}
+\addcontentsline{toc}{chapter}{参考文献}
 % 下面这个\nocite{*}命令指的是列举出所有的参考文献，即使没有被引用，也会列出来
-\nocite{*}
+% \nocite{*}
+\bibliography{bib/refers}
+

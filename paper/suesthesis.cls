@@ -23,7 +23,7 @@
 
 %依赖的Latex版本
 \NeedsTeXFormat{LaTeX2e}[2005/12/01]
-\ProvidesClass{suesthesis}[2023/03/03 v3.6.4 update  https://github.com/mobtgzhang/sues-thsis]
+\ProvidesClass{suesthesis}[2023/03/03 v3.6.5 update  https://github.com/mobtgzhang/sues-thsis]
 %使用xelex进行编译
 \RequirePackage{ifxetex}
 \RequireXeTeX
@@ -105,44 +105,40 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 %% 设置章节前的页码格式
 \RequirePackage[pagestyles]{titlesec}
 \RequirePackage{fancyhdr}
-% 设置摘要和目录的样式，即\frontmatter 和 \mainmatter 之间的内容
-\newpagestyle{frontmatterStyle}{
+% 默认页面样式
+\pagestyle{empty}
+% 设置摘要和目录的样式
+\newpagestyle{AbstractContentsStyle}{
     \fancyhf{}
     % \setcounter{page}{1}
     \setfoot{}{\Roman{page}}{}
 }
 \let\oldfrontmatter\frontmatter
 \renewcommand{\frontmatter}{
-    \pagestyle{frontmatterStyle}
+    \pagestyle{AbstractContentsStyle}
     \oldfrontmatter
-}
-% 目录的第一页也设置为相同的样式
-\AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{frontmatterStyle}}}
-% 默认的页眉页脚格式
-\pagestyle{empty}
-% 设置正文的页眉和页脚的样式，即\mainmatter 和 \backmatter 之间的内容
-% 设置默认的页眉页脚样式
-\fancypagestyle{plain}{
-    \fancyhf{}
-    \fancyfoot[C]{\songti\xiaowu 第 \thepage 页}
-    \fancyhead[L]{\songti\xiaowu 上海工程技术大学硕士学位论文}
-    \fancyhead[R]{\songti\xiaowu 
-    \ifnum \value{chapter}>0 第\zhnum{chapter}章
-    \fi \quad\chaptertitle
-    }
 }
 \let\oldmainmatter\mainmatter
 \renewcommand{\mainmatter}{
     \pagestyle{plain}
     \oldmainmatter
 }
-% 重新定义 \bibliography 命令
-\let\oldbibliography\bibliography
-\renewcommand{\bibliography}[1]{%
-    \addcontentsline{toc}{chapter}{参考文献}
-    \oldbibliography{#1}%
+% 目录的第一页也设置为相同的样式
+
+\let\oldtableofcontents\tableofcontents
+\renewcommand{\tableofcontents}{
+    \oldtableofcontents
+    \newpage
 }
-% 设置\backmatter 之后的章节样式
+
+\AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{AbstractContentsStyle}}}
+% 设置默认的页眉页脚样式
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyfoot[C]{\songti\xiaowu 第 \thepage 页}
+    \fancyhead[L]{\songti\xiaowu 上海工程技术大学硕士学位论文}
+    \fancyhead[R]{\songti\xiaowu 第\zhnum{chapter}章 \quad\chaptertitle }
+}
 
 %设置双线页眉
 \makeatletter
@@ -168,12 +164,6 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % -----------------------------------------------------------------
 \RequirePackage{titletoc}
 % 设置目录格式
-% 重新定义
-\let\oldtableofcontents\tableofcontents
-\renewcommand{\tableofcontents}{
-    \oldtableofcontents
-    \newpage
-}
 % 章节的目录格式
 \titlecontents{chapter}[0pt]{\vspace{2mm}\heiti\xiaosi}
 {\thecontentslabel\hskip.5em}{}{\titlerule*[0.5pc]{.}\contentspage}
@@ -186,12 +176,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % 三级标题的目录格式
 \titlecontents{subsubsection}[55pt]{\heiti\wuhao}
 {\thecontentslabel\hskip.5em}{}{\titlerule*[0.5pc]{.}\contentspage}
-% 重定义在附录中的section, subsection 和 subsubsection 在目录中的格式为不显示
-%\AtBeginEnvironment{appendices}{
-%    \titlecontents{section}[0pt]{}{}{}{}
-%    \titlecontents{subsection}[0pt]{}{}{}{}
-%    \titlecontents{subsubsection}[0pt]{}{}{}{}
-%}
+
 % -----------------------------------------------------------------
 % 设置每一个章节目录字体大小
 % 每章标题前空一行，以三号黑体居中打印。
@@ -436,10 +421,6 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 %-----------------------------------------
 % 载入参考文献宏包，设置引用格式
 \RequirePackage[numbers,sort&compress]{natbib}
-% 设置参考文献的行间距
-\setlength{\bibsep}{0em}
-% 设置参考文献的字体大小
-\renewcommand{\bibfont}{\zihao{5}}
 \setcitestyle{square,super}
 %-----------------------------------------
 % 设置代码插入格式
@@ -570,6 +551,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 %--------------------------------------------------------
 % 定义附录  
 % \renewcommand\appendix{\appendixname}
+
 %---------------------------------------------------------
 % 文档开始导入默认配置
 \AtBeginDocument{\makeatletter\input{suesthesis.cfg}\makeatother}

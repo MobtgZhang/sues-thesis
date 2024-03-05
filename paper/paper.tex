@@ -1,5 +1,4 @@
-\documentclass{suesthesis}
-
+\documentclass{suesthesis} 
 \begin{document}
     % 是否处于盲审查状态，blind是盲审状态，normal是正常状态
     \namesBlind{normal}
@@ -31,17 +30,18 @@
     \input{chapters/docref}
     % 第五章
     \input{chapters/summary}
-    % 第六章，参考文献要求格式
+    % 第六章
     \input{chapters/ref-ext}
     \backmatter
     % 参考文献
     \input{chapters/ref}
+    % 注意 \appendix之后的内容，在盲审阶段是需要注释掉的
+    \appendix
     % 附录
     \blindfileinput{chapters/appendix}
     % 攻读硕士学位期间发表的论文
     \blindfileinput{chapters/achievements}
     % 致谢
     \blindfileinput{chapters/thanks}
+    
 \end{document}
-
- 
