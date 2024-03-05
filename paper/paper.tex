@@ -1,6 +1,6 @@
-\documentclass{suesthesis} 
+\documentclass{suesthesis}
+
 \begin{document}
-    \pagestyle{empty}
     % 是否处于盲审查状态，blind是盲审状态，normal是正常状态
     \namesBlind{normal}
     % 论文中文封面
@@ -13,18 +13,14 @@
     \input{covers/authorization}
     % 从这里开始生成目录部分页码
     \frontmatter
-    \pagestyle{AbstractContentsStyle}
     % 中文摘要和英文摘要
     \input{chapters/abstract}
     %插入目录
     \tableofcontents
-    \newpage
     % 符号及缩略词说明
-    \thispagestyle{empty}
     \input{chapters/sym-def}
     \mainmatter
     % 从这里开始生成文章部分页码
-    \pagestyle{plain}
     % 第一章
     \input{chapters/introduction}
     % 第二章
@@ -35,12 +31,11 @@
     \input{chapters/docref}
     % 第五章
     \input{chapters/summary}
-    % 第六章
+    % 第六章，参考文献要求格式
     \input{chapters/ref-ext}
     \backmatter
     % 参考文献
     \input{chapters/ref}
-    % 注意 \appendix之后的内容，在盲审阶段是需要注释掉的
     \appendix
     % 附录
     \input{chapters/appendix}
@@ -48,7 +43,6 @@
     \input{chapters/achievements}
     % 致谢
     \input{chapters/thanks}
-    
 \end{document}
 
  
