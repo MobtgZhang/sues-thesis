@@ -1,12 +1,39 @@
+% 切换到附录模式
+\appendix
+
+% 添加附录总标题（不编号，但添加到目录）
 \chapter*{附录}
+\addcontentsline{toc}{chapter}{附录}
+
+% 设置页眉页脚
 \fancypagestyle{plain}{
-    \fancyhf{}
-    \fancyfoot[C]{\songti\xiaowu 第 \thepage 页}
-    \fancyhead[L]{\songti\xiaowu 上海工程技术大学硕士学位论文}
-    \fancyhead[R]{\songti\xiaowu \quad 附录 }
+\fancyhf{}
+\fancyfoot[C]{\songti\xiaowu 第 \thepage 页}
+\fancyhead[L]{\songti\xiaowu 上海工程技术大学硕士学位论文}
+\fancyhead[R]{\songti\xiaowu \quad 附录 }
 }
 \pagestyle{plain}
 
-\addcontentsline{toc}{chapter}{附录}
+% 重置各类计数器并修改编号格式
+\setcounter{section}{0}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\setcounter{equation}{0}
+\setcounter{algorithm}{0} % 重置算法计数器
+
+% 修改编号格式为附录字母形式
+\renewcommand{\thesection}{\Alph{section}}
+\renewcommand{\thefigure}{\Alph{section}-\arabic{figure}}
+\renewcommand{\thetable}{\Alph{section}-\arabic{table}}
+\renewcommand{\theequation}{\Alph{section}-\arabic{equation}}
+\renewcommand{\thealgorithm}{\Alph{section}-\arabic{algorithm}} % 算法编号格式修改为A-1、B-1等
+
+% 之后使用section创建各附录
+\section{附录A标题} % 会显示为"A 附录A标题"
 附录依次为附录1、附录2等。中文采用宋体，英文及数字采用Times New Roman字体，小四号，1.5倍行间距，首行缩进2字符。若无附录，则删除此页，并将目录中相应标题删除。
 
+\newpage
+% 附录B
+\section{附录B标题}
+这是第二页附录
+% 如此类推...
